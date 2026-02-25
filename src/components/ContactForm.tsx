@@ -51,7 +51,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="kontakt" className="bg-beige-light/20 py-24">
+    <section id="kontakt" className="bg-beige-light/20 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ export default function ContactForm() {
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
-        <div className="mt-16 grid gap-12 lg:grid-cols-5">
+        <div className="mt-10 grid gap-8 sm:mt-16 sm:gap-12 lg:grid-cols-5">
           {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -139,7 +139,7 @@ export default function ContactForm() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             onSubmit={handleSubmit}
-            className="rounded-3xl bg-white p-8 shadow-lg sm:p-10 lg:col-span-3"
+            className="rounded-3xl bg-white p-5 shadow-lg sm:p-8 md:p-10 lg:col-span-3"
           >
             {status === "success" ? (
               <div className="flex flex-col items-center py-12 text-center">

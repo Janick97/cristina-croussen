@@ -96,7 +96,7 @@ export default function SchadenForm() {
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="rounded-3xl bg-white p-12 shadow-lg"
+            className="rounded-3xl bg-white p-8 shadow-lg sm:p-12"
           >
             <CheckCircle size={64} className="mx-auto mb-6 text-green-500" />
             <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
@@ -119,7 +119,7 @@ export default function SchadenForm() {
   }
 
   return (
-    <section id="schadenspruefung" className="bg-beige-light/20 py-24">
+    <section id="schadenspruefung" className="bg-beige-light/20 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -134,7 +134,7 @@ export default function SchadenForm() {
             Schadensprüfung
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
-          <p className="mt-6 mx-auto max-w-2xl text-lg text-dark/70">
+          <p className="mt-4 mx-auto max-w-2xl text-base text-dark/70 sm:mt-6 sm:text-lg">
             Sie hatten einen Schaden? Schildern Sie uns Ihren Fall und wir
             prüfen Ihre Ansprüche – kostenlos und unverbindlich.
           </p>
@@ -146,9 +146,9 @@ export default function SchadenForm() {
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
           onSubmit={handleSubmit}
-          className="mx-auto mt-12 max-w-2xl rounded-3xl bg-white p-8 shadow-lg sm:p-12"
+          className="mx-auto mt-10 max-w-2xl rounded-3xl bg-white p-5 shadow-lg sm:mt-12 sm:p-8 md:p-12"
         >
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-5 sm:grid-cols-2">
             {/* Name */}
             <div className="sm:col-span-2">
               <label htmlFor="schaden-name" className="mb-2 block text-sm font-medium text-dark">
@@ -244,7 +244,7 @@ export default function SchadenForm() {
               </label>
               <label
                 htmlFor="dokumente"
-                className="flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed border-beige/50 p-8 transition-all hover:border-primary/50 hover:bg-primary/5"
+                className="flex cursor-pointer flex-col items-center gap-3 rounded-xl border-2 border-dashed border-beige/50 p-5 transition-all hover:border-primary/50 hover:bg-primary/5 sm:p-8"
               >
                 <Upload size={32} className="text-primary/60" />
                 <span className="text-sm text-dark/60">

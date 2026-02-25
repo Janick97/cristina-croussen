@@ -43,7 +43,7 @@ const steps = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="bg-beige-light/10 py-24">
+    <section className="bg-beige-light/10 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -60,11 +60,77 @@ export default function ProcessTimeline() {
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
-        <div className="relative mt-16">
-          {/* Connecting line (desktop) */}
-          <div className="absolute top-24 left-0 right-0 hidden h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent lg:block" />
+        <div className="relative mt-12 sm:mt-16">
+          {/* Connecting line (desktop only) */}
+          <div className="absolute top-[52px] left-0 right-0 hidden h-0.5 bg-gradient-to-r from-transparent via-primary/20 to-transparent lg:block" />
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          {/* Mobile: vertical timeline list */}
+          <div className="flex flex-col gap-6 sm:hidden">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="flex items-start gap-4"
+              >
+                {/* Vertical connector */}
+                <div className="flex flex-col items-center">
+                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-primary shadow-md shadow-primary/20">
+                    <step.icon size={20} className="text-white" />
+                  </div>
+                  {index < steps.length - 1 && (
+                    <div className="mt-2 w-0.5 flex-1 bg-primary/15" style={{ minHeight: "2rem" }} />
+                  )}
+                </div>
+                <div className="pb-2 pt-1">
+                  <span className="font-[family-name:var(--font-caveat)] text-sm text-primary/60">
+                    Schritt {step.step}
+                  </span>
+                  <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+                    {step.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-relaxed text-dark/60">
+                    {step.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Tablet: 2-3 column grid */}
+          <div className="hidden gap-6 sm:grid sm:grid-cols-3 lg:hidden">
+            {steps.map((step, index) => (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.12 }}
+                className="relative text-center"
+              >
+                <div className="relative mx-auto mb-5 flex h-16 w-16 items-center justify-center">
+                  <div className="absolute inset-0 rounded-full bg-primary/10" />
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/20">
+                    <step.icon size={20} className="text-white" />
+                  </div>
+                </div>
+                <span className="font-[family-name:var(--font-caveat)] text-base text-primary/60">
+                  Schritt {step.step}
+                </span>
+                <h3 className="mt-1 font-[family-name:var(--font-londrina)] text-xl text-dark">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                  {step.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Desktop: 5-column grid */}
+          <div className="hidden lg:grid lg:grid-cols-5 lg:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.step}
@@ -74,14 +140,12 @@ export default function ProcessTimeline() {
                 transition={{ delay: index * 0.15 }}
                 className="relative text-center"
               >
-                {/* Step number circle */}
                 <div className="relative mx-auto mb-6 flex h-20 w-20 items-center justify-center">
                   <div className="absolute inset-0 rounded-full bg-primary/10" />
                   <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-primary shadow-lg shadow-primary/20">
                     <step.icon size={24} className="text-white" />
                   </div>
                 </div>
-
                 <span className="font-[family-name:var(--font-caveat)] text-lg text-primary/60">
                   Schritt {step.step}
                 </span>

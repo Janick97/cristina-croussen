@@ -5,7 +5,7 @@ import { Calendar, Clock, Video, Coffee } from "lucide-react";
 
 export default function Terminbuchung() {
   return (
-    <section id="termin" className="bg-white py-24">
+    <section id="termin" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -20,21 +20,21 @@ export default function Terminbuchung() {
             Kennenlerntermin buchen
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-dark/70">
+          <p className="mx-auto mt-4 max-w-2xl text-base text-dark/70 sm:mt-6 sm:text-lg">
             In einem persönlichen Erstgespräch lernen wir uns kennen und
             analysieren gemeinsam Ihre finanzielle Situation.
           </p>
         </motion.div>
 
-        <div className="mt-16 grid gap-8 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:mt-16 lg:grid-cols-3 lg:gap-8">
           {/* Info Cards */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col gap-6"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-3 lg:flex lg:flex-col lg:gap-6"
           >
-            <div className="rounded-2xl border border-beige/30 p-6">
+            <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Clock size={28} className="mb-3 text-primary" />
               <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
                 15 Minuten
@@ -44,7 +44,7 @@ export default function Terminbuchung() {
                 besprechen.
               </p>
             </div>
-            <div className="rounded-2xl border border-beige/30 p-6">
+            <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Video size={28} className="mb-3 text-primary" />
               <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
                 Online oder vor Ort
@@ -53,7 +53,7 @@ export default function Terminbuchung() {
                 Flexibel per Video-Call oder persönlich in Heinsberg.
               </p>
             </div>
-            <div className="rounded-2xl border border-beige/30 p-6">
+            <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Coffee size={28} className="mb-3 text-primary" />
               <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
                 Unverbindlich
@@ -84,7 +84,7 @@ export default function Terminbuchung() {
               <div className="p-2">
                 <iframe
                   src="https://www.cal.eu/cristinacroussen/15min"
-                  className="h-[600px] w-full rounded-2xl border-0"
+                  className="h-[480px] w-full rounded-2xl border-0 sm:h-[560px] lg:h-[600px]"
                   title="Terminbuchung"
                   loading="lazy"
                 />

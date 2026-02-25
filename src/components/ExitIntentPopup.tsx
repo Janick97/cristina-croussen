@@ -64,7 +64,7 @@ export default function ExitIntentPopup() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-dark/50 p-4 backdrop-blur-sm"
+          className="fixed inset-0 z-[60] flex items-end justify-center bg-dark/50 p-0 backdrop-blur-sm sm:items-center sm:p-4"
           onClick={(e) => {
             if (e.target === e.currentTarget) setVisible(false);
           }}
@@ -73,7 +73,7 @@ export default function ExitIntentPopup() {
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
-            className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white shadow-2xl"
+            className="relative w-full max-w-md overflow-hidden rounded-t-3xl bg-white shadow-2xl sm:rounded-3xl"
           >
             {/* Close button */}
             <button
@@ -87,19 +87,21 @@ export default function ExitIntentPopup() {
             {/* Top accent bar */}
             <div className="h-1.5 bg-gradient-to-r from-primary to-primary-dark" />
 
-            <div className="p-8 text-center">
+            <div className="p-6 text-center sm:p-8">
+              {/* Mobile drag handle */}
+              <div className="mx-auto mb-4 h-1 w-10 rounded-full bg-dark/15 sm:hidden" />
               <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
                 Noch unsicher?
               </span>
-              <h3 className="mt-2 font-[family-name:var(--font-londrina)] text-3xl text-dark">
+              <h3 className="mt-2 font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
                 Lassen Sie uns sprechen
               </h3>
-              <p className="mt-4 text-dark/60">
+              <p className="mt-3 text-sm text-dark/60 sm:mt-4 sm:text-base">
                 Ein kurzes Gespräch kann viel klären. Ich berate Sie gerne
                 kostenlos und unverbindlich zu Ihrer finanziellen Situation.
               </p>
 
-              <div className="mt-8 flex flex-col gap-3">
+              <div className="mt-6 flex flex-col gap-3 sm:mt-8">
                 <a
                   href="https://www.cal.eu/cristinacroussen/15min"
                   target="_blank"
@@ -122,7 +124,7 @@ export default function ExitIntentPopup() {
                 </a>
               </div>
 
-              <p className="mt-6 text-xs text-dark/30">
+              <p className="mt-4 text-xs text-dark/30 sm:mt-6">
                 Kostenlos & unverbindlich – kein Verkaufsgespräch
               </p>
             </div>

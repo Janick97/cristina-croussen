@@ -41,7 +41,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-white py-24">
+    <section id="faq" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ export default function FAQ() {
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
-        <div className="mt-12 space-y-4">
+        <div className="mt-8 space-y-3 sm:mt-12 sm:space-y-4">
           {faqs.map((faq, index) => (
             <motion.div
               key={index}
@@ -72,7 +72,7 @@ export default function FAQ() {
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
                 }
-                className="flex w-full items-center justify-between px-6 py-5 text-left transition-colors hover:bg-primary/5"
+                className="flex w-full items-center justify-between px-4 py-4 text-left transition-colors hover:bg-primary/5 sm:px-6 sm:py-5"
               >
                 <span className="pr-4 font-medium text-dark">
                   {faq.question}
@@ -92,7 +92,7 @@ export default function FAQ() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <p className="px-6 pb-5 leading-relaxed text-dark/60">
+                    <p className="px-4 pb-4 text-sm leading-relaxed text-dark/60 sm:px-6 sm:pb-5 sm:text-base">
                       {faq.answer}
                     </p>
                   </motion.div>

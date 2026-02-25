@@ -55,16 +55,16 @@ export default function CookieBanner() {
           initial={{ y: 100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 100, opacity: 0 }}
-          className="fixed bottom-0 left-0 right-0 z-50 p-4 sm:p-6"
+          className="fixed bottom-0 left-0 right-0 z-50 p-3 sm:p-6"
         >
-          <div className="mx-auto max-w-3xl rounded-2xl border border-beige/30 bg-white p-6 shadow-2xl sm:p-8">
-            <div className="flex items-start gap-4">
-              <Cookie size={24} className="mt-1 shrink-0 text-primary" />
-              <div className="flex-1">
-                <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+          <div className="mx-auto max-w-3xl rounded-2xl border border-beige/30 bg-white p-4 shadow-2xl sm:p-6 md:p-8">
+            <div className="flex items-start gap-3 sm:gap-4">
+              <Cookie size={20} className="mt-0.5 shrink-0 text-primary sm:mt-1 sm:size-6" />
+              <div className="flex-1 min-w-0">
+                <h3 className="font-[family-name:var(--font-londrina)] text-lg text-dark sm:text-xl">
                   Cookie-Einstellungen
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-dark/60">
+                <p className="mt-1.5 text-xs leading-relaxed text-dark/60 sm:mt-2 sm:text-sm">
                   Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf
                   unserer Website zu bieten. Sie können selbst entscheiden,
                   welche Kategorien Sie zulassen möchten.
@@ -162,24 +162,24 @@ export default function CookieBanner() {
                 </AnimatePresence>
 
                 {/* Buttons */}
-                <div className="mt-6 flex flex-wrap gap-3">
+                <div className="mt-4 flex flex-wrap gap-2 sm:mt-6 sm:gap-3">
                   <button
                     onClick={acceptAll}
-                    className="rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark"
+                    className="rounded-full bg-primary px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-primary-dark sm:px-6 sm:py-2.5 sm:text-sm"
                   >
                     Alle akzeptieren
                   </button>
                   {showDetails && (
                     <button
                       onClick={acceptSelected}
-                      className="rounded-full border border-primary px-6 py-2.5 text-sm font-semibold text-primary transition-all hover:bg-primary/5"
+                      className="rounded-full border border-primary px-4 py-2 text-xs font-semibold text-primary transition-all hover:bg-primary/5 sm:px-6 sm:py-2.5 sm:text-sm"
                     >
                       Auswahl speichern
                     </button>
                   )}
                   <button
                     onClick={rejectAll}
-                    className="rounded-full border border-dark/10 px-6 py-2.5 text-sm font-semibold text-dark/60 transition-all hover:border-dark/30"
+                    className="rounded-full border border-dark/10 px-4 py-2 text-xs font-semibold text-dark/60 transition-all hover:border-dark/30 sm:px-6 sm:py-2.5 sm:text-sm"
                   >
                     Nur essenzielle
                   </button>

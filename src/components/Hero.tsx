@@ -24,15 +24,15 @@ export default function Hero() {
       {/* Decorative elements */}
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, -60]) }}
-        className="absolute top-20 right-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+        className="absolute top-20 right-0 h-64 w-64 rounded-full bg-primary/5 blur-3xl sm:h-96 sm:w-96"
       />
       <motion.div
         style={{ y: useTransform(scrollYProgress, [0, 1], [0, 40]) }}
-        className="absolute bottom-20 left-0 h-64 w-64 rounded-full bg-beige/10 blur-3xl"
+        className="absolute bottom-20 left-0 h-48 w-48 rounded-full bg-beige/10 blur-3xl sm:h-64 sm:w-64"
       />
 
-      <div className="mx-auto max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pt-28 lg:px-8 lg:pt-24">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Text Content */}
           <motion.div
             style={{ y: textY, opacity }}
@@ -45,30 +45,30 @@ export default function Hero() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mb-4 inline-block font-[family-name:var(--font-caveat)] text-xl text-primary"
+              className="mb-4 inline-block font-[family-name:var(--font-caveat)] text-lg text-primary sm:text-xl"
             >
               Finanzcoach & Vermögensberaterin
             </motion.span>
 
-            <h1 className="mb-6 font-[family-name:var(--font-londrina)] text-5xl leading-tight text-dark sm:text-6xl lg:text-7xl">
+            <h1 className="mb-6 font-[family-name:var(--font-londrina)] text-4xl leading-tight text-dark sm:text-5xl lg:text-7xl">
               Finanzielle Sicherheit beginnt mit{" "}
               <span className="text-primary">Klarheit.</span>
             </h1>
 
-            <p className="mb-10 max-w-xl text-lg leading-relaxed text-dark/70">
+            <p className="mb-8 text-base leading-relaxed text-dark/70 sm:mb-10 sm:text-lg">
               Unabhängige Analyse Ihrer Situation – persönlich & transparent.
               Gemeinsam schaffen wir die Grundlage für Ihren langfristigen
               Vermögensaufbau.
             </p>
 
-            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 lg:justify-start">
               <motion.a
                 href="#schadenspruefung"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 sm:px-8 sm:py-4 sm:text-base"
               >
-                <Shield size={20} />
+                <Shield size={18} />
                 Schaden prüfen lassen
               </motion.a>
               <motion.a
@@ -77,15 +77,15 @@ export default function Hero() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
-                className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-dark/10 bg-white px-8 py-4 text-base font-semibold text-dark transition-all hover:border-primary hover:text-primary hover:shadow-lg"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-dark/10 bg-white px-6 py-3.5 text-sm font-semibold text-dark transition-all hover:border-primary hover:text-primary hover:shadow-lg sm:px-8 sm:py-4 sm:text-base"
               >
-                <Calendar size={20} />
+                <Calendar size={18} />
                 Kennenlerntermin buchen
               </motion.a>
             </div>
 
             {/* Trust Badges */}
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 lg:justify-start">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-12 sm:gap-8 lg:justify-start">
               {["DVAG Partner", "Persönliche Beratung", "Kostenlose Erstanalyse"].map(
                 (badge, i) => (
                   <motion.div
@@ -93,10 +93,10 @@ export default function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8 + i * 0.1 }}
-                    className="flex items-center gap-2 text-sm text-dark/50"
+                    className="flex items-center gap-2 text-xs text-dark/50 sm:text-sm"
                   >
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
-                      <Shield size={14} className="text-primary" />
+                    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 sm:h-8 sm:w-8">
+                      <Shield size={13} className="text-primary" />
                     </div>
                     {badge}
                   </motion.div>

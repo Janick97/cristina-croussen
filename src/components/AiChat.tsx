@@ -91,7 +91,7 @@ export default function AiChat() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 left-6 z-40 flex items-center gap-2 rounded-full bg-dark px-5 py-3 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl"
+            className="fixed bottom-5 left-4 z-40 flex items-center gap-2 rounded-full bg-dark px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-6 sm:left-6 sm:px-5 sm:py-3"
           >
             <Sparkles size={18} className="text-primary-light" />
             <span className="hidden sm:inline">Versicherungs-Check</span>
@@ -107,7 +107,8 @@ export default function AiChat() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-4 left-4 z-50 flex h-[520px] w-[380px] max-w-[calc(100vw-2rem)] flex-col overflow-hidden rounded-2xl border border-beige/30 bg-white shadow-2xl sm:bottom-6 sm:left-6"
+            className="fixed bottom-0 left-0 right-0 z-50 flex flex-col overflow-hidden rounded-t-2xl border border-beige/30 bg-white shadow-2xl sm:bottom-6 sm:left-6 sm:right-auto sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl"
+            style={{ height: "min(520px, 90dvh)" }}
           >
             {/* Header */}
             <div className="flex items-center justify-between bg-dark px-5 py-4">

@@ -22,11 +22,11 @@ function TypewriterQuote() {
   const isInView = useInView(ref, { once: true, margin: "-50px" });
 
   return (
-    <div ref={ref} className="relative mt-8 pl-20">
-      <span className="absolute top-[-30px] left-0 font-serif text-[200px] leading-none text-primary/25">
+    <div ref={ref} className="relative mt-8 pl-10 sm:pl-20">
+      <span className="absolute top-[-20px] left-0 font-serif text-[120px] leading-none text-primary/25 sm:top-[-30px] sm:text-[200px]">
         &ldquo;
       </span>
-      <div className="relative font-[family-name:var(--font-caveat)] text-xl leading-snug text-dark/80 sm:text-2xl">
+      <div className="relative font-[family-name:var(--font-caveat)] text-lg leading-snug text-dark/80 sm:text-xl md:text-2xl">
         {quoteLines.map((line, i) => (
           <p key={i} className="-mt-0.5 overflow-hidden">
             <motion.span
@@ -67,7 +67,7 @@ function TypewriterQuote() {
 
 export default function About() {
   return (
-    <section id="ueber-mich" className="overflow-hidden bg-white py-24">
+    <section id="ueber-mich" className="overflow-hidden bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
@@ -86,13 +86,13 @@ export default function About() {
         </motion.div>
 
         {/* Main Content: Image + Intro */}
-        <div className="mt-16 grid items-center gap-12 lg:grid-cols-5">
+        <div className="mt-12 grid items-center gap-10 sm:mt-16 lg:grid-cols-5 lg:gap-12">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="relative mx-auto max-w-xs lg:col-span-2 lg:max-w-none"
+            className="relative mx-auto w-full max-w-xs lg:col-span-2 lg:max-w-none"
           >
             <div className="relative mx-auto w-full max-w-sm overflow-hidden rounded-3xl shadow-xl">
               <Image
@@ -127,20 +127,20 @@ export default function About() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
+            <h3 className="font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
               Cristina Croußen
             </h3>
             <p className="mt-1 text-sm font-medium tracking-wide text-primary">
               Finanzcoach & Vermögensberaterin | DVAG
             </p>
 
-            <p className="mt-6 text-lg leading-relaxed text-dark/70">
+            <p className="mt-5 text-base leading-relaxed text-dark/70 sm:mt-6 sm:text-lg">
               Mit kaufmännischer Ausbildung und kontinuierlicher Weiterbildung
               im Finanzbereich habe ich meine Berufung gefunden: Menschen
               dabei zu unterstützen, finanzielle Klarheit zu gewinnen und
               selbstbewusste Entscheidungen zu treffen.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-dark/70">
+            <p className="mt-4 text-base leading-relaxed text-dark/70 sm:text-lg">
               Gute Beratung beginnt dort, wo man den Menschen hinter den
               Zahlen versteht. Deshalb nehme ich mir Zeit, Ihre individuelle
               Situation wirklich kennenzulernen – bevor wir gemeinsam die
@@ -156,9 +156,9 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-14 sm:mt-20"
         >
-          <p className="mb-8 text-center text-sm font-medium uppercase tracking-widest text-dark/30">
+          <p className="mb-6 text-center text-sm font-medium uppercase tracking-widest text-dark/30 sm:mb-8">
             Ein paar Dinge über mich
           </p>
 
@@ -166,7 +166,7 @@ export default function About() {
             {/* Card 1 - Large */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-7 sm:col-span-2"
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-5 sm:col-span-2 sm:p-7"
             >
               <GraduationCap
                 size={80}
@@ -191,7 +191,7 @@ export default function About() {
             {/* Card 2 */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="rounded-2xl bg-dark p-7 text-white"
+              className="rounded-2xl bg-dark p-5 text-white sm:p-7"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
                 <Target size={20} className="text-primary-light" />
@@ -209,7 +209,7 @@ export default function About() {
             {/* Card 3 */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="rounded-2xl border border-beige/30 bg-white p-7"
+              className="rounded-2xl border border-beige/30 bg-white p-5 sm:p-7"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <Camera size={20} className="text-primary" />
@@ -226,7 +226,7 @@ export default function About() {
             {/* Card 4 */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="rounded-2xl border border-beige/30 bg-white p-7"
+              className="rounded-2xl border border-beige/30 bg-white p-5 sm:p-7"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
                 <PawPrint size={20} className="text-primary" />
@@ -243,7 +243,7 @@ export default function About() {
             {/* Card 5 - Wide */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="flex items-center gap-6 rounded-2xl bg-beige-light/20 p-7 sm:col-span-2"
+              className="flex items-start gap-4 rounded-2xl bg-beige-light/20 p-5 sm:col-span-2 sm:items-center sm:gap-6 sm:p-7"
             >
               <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
                 <Sparkles size={28} className="text-primary" />
@@ -263,7 +263,7 @@ export default function About() {
             {/* Card 6 - Bike */}
             <motion.div
               whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-dark to-dark/90 p-7 text-white"
+              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-dark to-dark/90 p-5 text-white sm:p-7"
             >
               <Bike
                 size={70}

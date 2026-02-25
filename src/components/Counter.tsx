@@ -45,13 +45,13 @@ function AnimatedNumber({ value, suffix }: { value: number; suffix: string }) {
 
 export default function Counter() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark py-16">
+    <section className="relative overflow-hidden bg-gradient-to-r from-primary to-primary-dark py-12 sm:py-16">
       {/* Decorative circles */}
       <div className="absolute -top-12 -left-12 h-48 w-48 rounded-full bg-white/5" />
       <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white/5" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
@@ -61,11 +61,11 @@ export default function Counter() {
               transition={{ delay: index * 0.1 }}
               className="text-center"
             >
-              <stat.icon size={28} className="mx-auto mb-3 text-white/80" />
-              <div className="font-[family-name:var(--font-londrina)] text-4xl text-white sm:text-5xl">
+              <stat.icon size={24} className="mx-auto mb-2 text-white/80 sm:mb-3 sm:size-7" />
+              <div className="font-[family-name:var(--font-londrina)] text-3xl text-white sm:text-4xl md:text-5xl">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
-              <p className="mt-2 text-sm text-white/70">{stat.label}</p>
+              <p className="mt-1 text-xs text-white/70 sm:mt-2 sm:text-sm">{stat.label}</p>
             </motion.div>
           ))}
         </div>

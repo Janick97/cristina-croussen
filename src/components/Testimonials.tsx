@@ -23,7 +23,7 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-gradient-to-br from-dark to-dark/95 py-24">
+    <section className="bg-gradient-to-br from-dark to-dark/95 py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,7 +40,7 @@ export default function Testimonials() {
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:mt-16 sm:gap-8 md:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={index}
@@ -48,7 +48,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="relative rounded-2xl bg-white/5 p-8 backdrop-blur-sm"
+              className="relative rounded-2xl bg-white/5 p-6 backdrop-blur-sm sm:p-8"
             >
               <Quote
                 size={32}
