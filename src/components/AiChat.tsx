@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Bot, Send, X, Sparkles, Loader2 } from "lucide-react";
+import { Bot, Send, X, Sparkles, Loader2, ChevronLeft } from "lucide-react";
 
 interface Message {
   role: "user" | "assistant";
@@ -21,15 +21,17 @@ export default function AiChat() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [viewportHeight, setViewportHeight] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
-    if (open) inputRef.current?.focus();
+    if (open && window.innerWidth >= 640) inputRef.current?.focus();
   }, [open]);
 
   // Prevent body scroll when chat is open on mobile
@@ -42,6 +44,28 @@ export default function AiChat() {
       }
     }
   }, [open]);
+
+  // Handle mobile keyboard — resize chat to visible viewport
+  useEffect(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+
+    const onResize = () => {
+      setViewportHeight(vv.height);
+    };
+
+    vv.addEventListener("resize", onResize);
+    onResize();
+    return () => vv.removeEventListener("resize", onResize);
+  }, [open]);
+
+  // Scroll to bottom when keyboard opens
+  const scrollToBottom = useCallback(() => {
+    setTimeout(() => {
+      messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  }, []);
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
@@ -115,35 +139,60 @@ export default function AiChat() {
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-white sm:inset-auto sm:bottom-6 sm:left-6 sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl sm:border sm:border-beige/30 sm:shadow-2xl"
+            ref={chatContainerRef}
+            initial={{ opacity: 0, y: "100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "100%" }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed inset-x-0 bottom-0 z-50 flex flex-col overflow-hidden bg-white sm:inset-auto sm:bottom-6 sm:left-6 sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl sm:border sm:border-beige/30 sm:shadow-2xl"
+            style={{
+              height: viewportHeight && window.innerWidth < 640
+                ? `${viewportHeight}px`
+                : undefined,
+              top: window.innerWidth < 640 ? "auto" : undefined,
+            }}
           >
             {/* Header */}
-            <div className="flex items-center justify-between bg-dark px-5 pt-[max(1rem,env(safe-area-inset-top))] pb-4 sm:py-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20">
+            <div className="flex shrink-0 items-center justify-between bg-dark px-4 py-3 sm:px-5 sm:py-4">
+              <div className="flex items-center gap-2 sm:gap-3">
+                {/* Mobile: back arrow, Desktop: bot icon */}
+                <button
+                  onClick={() => setOpen(false)}
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-white/70 active:bg-white/10 sm:hidden"
+                  aria-label="Chat schließen"
+                >
+                  <ChevronLeft size={22} />
+                </button>
+                <div className="hidden h-9 w-9 items-center justify-center rounded-full bg-primary/20 sm:flex">
                   <Bot size={20} className="text-primary-light" />
                 </div>
                 <p className="text-sm font-semibold text-white">
                   Versicherungs-Assistent
                 </p>
               </div>
+              {/* Desktop close button */}
               <button
                 onClick={() => setOpen(false)}
-                className="flex h-8 w-8 items-center justify-center rounded-full text-white/50 transition-colors hover:bg-white/10 hover:text-white"
+                className="hidden h-8 w-8 items-center justify-center rounded-full text-white/50 transition-colors hover:bg-white/10 hover:text-white sm:flex"
                 aria-label="Chat schließen"
               >
                 <X size={18} />
               </button>
+              {/* Mobile close X */}
+              <button
+                onClick={() => setOpen(false)}
+                className="flex h-10 w-10 items-center justify-center rounded-full text-white/60 active:bg-white/10 sm:hidden"
+                aria-label="Chat schließen"
+              >
+                <X size={20} />
+              </button>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4">
+            <div className="flex-1 overflow-y-auto overscroll-contain px-4 py-4">
               {messages.length === 0 ? (
                 <div className="flex h-full flex-col justify-between">
-                  <div className="text-center">
+                  <div className="pt-4 text-center sm:pt-0">
                     <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
                       <Sparkles size={28} className="text-primary" />
                     </div>
@@ -157,7 +206,7 @@ export default function AiChat() {
                   </div>
 
                   {/* Quick Questions */}
-                  <div className="mt-4 space-y-2">
+                  <div className="mt-4 space-y-2 pb-1">
                     <p className="text-xs font-medium text-dark/30">
                       Häufige Fragen:
                     </p>
@@ -165,7 +214,7 @@ export default function AiChat() {
                       <button
                         key={q}
                         onClick={() => sendMessage(q)}
-                        className="block w-full rounded-xl border border-beige/40 px-4 py-3 text-left text-sm text-dark/70 transition-all hover:border-primary/30 hover:bg-primary/5 active:bg-primary/10 sm:py-2.5"
+                        className="block w-full rounded-xl border border-beige/40 px-4 py-3 text-left text-sm text-dark/70 transition-all hover:border-primary/30 hover:bg-primary/5 active:bg-primary/10"
                       >
                         {q}
                       </button>
@@ -173,14 +222,14 @@ export default function AiChat() {
                   </div>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {messages.map((msg, i) => (
                     <div
                       key={i}
                       className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                     >
                       <div
-                        className={`max-w-[85%] rounded-2xl px-4 py-3 text-sm leading-relaxed ${
+                        className={`max-w-[85%] rounded-2xl px-4 py-2.5 text-[15px] leading-relaxed sm:text-sm ${
                           msg.role === "user"
                             ? "rounded-br-md bg-primary text-white"
                             : "rounded-bl-md bg-beige-light/30 text-dark/80"
@@ -192,7 +241,7 @@ export default function AiChat() {
                   ))}
                   {loading && (
                     <div className="flex justify-start">
-                      <div className="flex items-center gap-2 rounded-2xl rounded-bl-md bg-beige-light/30 px-4 py-3 text-sm text-dark/50">
+                      <div className="flex items-center gap-2 rounded-2xl rounded-bl-md bg-beige-light/30 px-4 py-2.5 text-sm text-dark/50">
                         <Loader2 size={16} className="animate-spin" />
                         Einen Moment...
                       </div>
@@ -204,7 +253,7 @@ export default function AiChat() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-beige/20 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+            <div className="shrink-0 border-t border-beige/20 bg-white px-4 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))] sm:py-3">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -217,6 +266,7 @@ export default function AiChat() {
                   type="text"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
+                  onFocus={scrollToBottom}
                   placeholder="Ihre Frage..."
                   disabled={loading}
                   className="flex-1 rounded-xl border border-beige/40 px-4 py-3 text-base text-dark outline-none transition-all placeholder:text-dark/30 focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:opacity-50 sm:py-2.5 sm:text-sm"
@@ -229,7 +279,7 @@ export default function AiChat() {
                   <Send size={16} />
                 </button>
               </form>
-              <p className="mt-2 text-center text-[10px] text-dark/25">
+              <p className="mt-1.5 text-center text-[10px] text-dark/25 sm:mt-2">
                 KI-basierte Auskunft – keine rechtsverbindliche Beratung
               </p>
             </div>
