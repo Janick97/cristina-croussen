@@ -26,7 +26,24 @@ function TypewriterQuote() {
       <span className="absolute top-[-20px] left-0 font-serif text-[120px] leading-none text-primary/25 sm:top-[-30px] sm:text-[200px]">
         &ldquo;
       </span>
-      <div className="relative font-[family-name:var(--font-caveat)] text-lg leading-snug text-dark/80 sm:text-xl md:text-2xl">
+
+      {/* Mobile: simple fade-in with word wrap */}
+      <div className="relative font-[family-name:var(--font-caveat)] text-lg leading-snug text-dark/80 sm:hidden">
+        {quoteLines.map((line, i) => (
+          <motion.p
+            key={i}
+            className="-mt-0.5"
+            initial={{ opacity: 0, y: 8 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: i * 0.4 }}
+          >
+            {line}
+          </motion.p>
+        ))}
+      </div>
+
+      {/* Desktop: typewriter effect */}
+      <div className="relative hidden font-[family-name:var(--font-caveat)] leading-snug text-dark/80 sm:block sm:text-xl md:text-2xl">
         {quoteLines.map((line, i) => (
           <p key={i} className="-mt-0.5 overflow-hidden">
             <motion.span
