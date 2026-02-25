@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Palette } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -11,15 +11,33 @@ const navLinks = [
   { href: "#kontakt", label: "Kontakt" },
 ];
 
+const themes = {
+  orange: { primary: "#FFC282", primaryLight: "#FFD6A8", primaryDark: "#E5A160", label: "Orange" },
+  rosa: { primary: "#D9A397", primaryLight: "#E8C4BB", primaryDark: "#C48B7E", label: "Rosa" },
+};
+type ThemeKey = keyof typeof themes;
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeTheme, setActiveTheme] = useState<ThemeKey>("orange");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const toggleTheme = () => {
+    const next: ThemeKey = activeTheme === "orange" ? "rosa" : "orange";
+    const theme = themes[next];
+    document.documentElement.style.setProperty("--color-primary", theme.primary);
+    document.documentElement.style.setProperty("--color-primary-light", theme.primaryLight);
+    document.documentElement.style.setProperty("--color-primary-dark", theme.primaryDark);
+    setActiveTheme(next);
+  };
+
+  const otherTheme = activeTheme === "orange" ? "rosa" : "orange";
 
   return (
     <header
@@ -51,6 +69,18 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            {/* Color Toggle - Desktop */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-1.5 text-sm font-medium text-dark/50 transition-colors hover:text-dark"
+              title={`Wechsel zu ${themes[otherTheme].label}`}
+            >
+              <Palette size={16} />
+              <span
+                className="inline-block h-4 w-4 rounded-full border border-dark/10"
+                style={{ background: themes[otherTheme].primary }}
+              />
+            </button>
             <a
               href="https://www.cal.eu/cristinacroussen/15min"
               target="_blank"
@@ -92,6 +122,18 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
+              {/* Color Toggle - Mobile */}
+              <button
+                onClick={toggleTheme}
+                className="flex items-center gap-2 text-base font-medium text-dark/50 transition-colors active:text-dark"
+              >
+                <Palette size={18} />
+                <span>Farbe: {themes[activeTheme].label}</span>
+                <span
+                  className="inline-block h-5 w-5 rounded-full border border-dark/10"
+                  style={{ background: themes[otherTheme].primary }}
+                />
+              </button>
               <a
                 href="https://www.cal.eu/cristinacroussen/15min"
                 target="_blank"

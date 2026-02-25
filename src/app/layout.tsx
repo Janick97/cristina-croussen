@@ -10,7 +10,6 @@ import ExitIntentPopup from "@/components/ExitIntentPopup";
 import PageLoader from "@/components/PageLoader";
 import AiChat from "@/components/AiChat";
 import ScrollProgress from "@/components/ScrollProgress";
-import ColorToggle from "@/components/ColorToggle";
 
 const londrina = Londrina_Solid({
   weight: ["300", "400", "900"],
@@ -79,7 +78,6 @@ export default function RootLayout({
         <WhatsAppButton />
         <CookieBanner />
         <ExitIntentPopup />
-        <ColorToggle />
       </body>
     </html>
   );

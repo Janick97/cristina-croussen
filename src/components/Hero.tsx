@@ -31,7 +31,7 @@ export default function Hero() {
         className="absolute bottom-20 left-0 h-48 w-48 rounded-full bg-beige/10 blur-3xl sm:h-64 sm:w-64"
       />
 
-      <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-28 sm:px-6 sm:pt-28 lg:px-8 lg:pt-24">
+      <div className="mx-auto w-full max-w-7xl px-4 pb-16 pt-22 sm:px-6 sm:pt-28 lg:px-8 lg:pt-24">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Text Content */}
           <motion.div
