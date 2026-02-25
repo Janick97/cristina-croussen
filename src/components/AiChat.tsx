@@ -34,14 +34,11 @@ export default function AiChat() {
     if (open && window.innerWidth >= 640) inputRef.current?.focus();
   }, [open]);
 
-  // Prevent body scroll when chat is open on mobile
+  // Prevent body scroll when chat is open
   useEffect(() => {
     if (open) {
-      const isMobile = window.innerWidth < 640;
-      if (isMobile) {
-        document.body.style.overflow = "hidden";
-        return () => { document.body.style.overflow = ""; };
-      }
+      document.body.style.overflow = "hidden";
+      return () => { document.body.style.overflow = ""; };
     }
   }, [open]);
 
