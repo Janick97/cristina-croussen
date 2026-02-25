@@ -5,17 +5,17 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sabine M.",
+    name: "Janick K.",
     text: "Cristina hat sich wirklich Zeit genommen, meine Situation zu verstehen. Die Beratung war transparent und ohne Druck. Endlich fühle ich mich finanziell sicher.",
     rating: 5,
   },
   {
-    name: "Thomas K.",
+    name: "Rüdiger C.",
     text: "Nach einem Wasserschaden wusste ich nicht weiter. Cristina hat alles übernommen und die Versicherung hat schnell gezahlt. Absolute Empfehlung!",
     rating: 5,
   },
   {
-    name: "Anna L.",
+    name: "Stefan B.",
     text: "Professionell, persönlich und immer erreichbar. So stelle ich mir eine gute Finanzberatung vor. Danke, Cristina!",
     rating: 5,
   },
