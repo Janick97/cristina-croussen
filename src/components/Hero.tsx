@@ -1,0 +1,141 @@
+"use client";
+
+import Image from "next/image";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
+import { Shield, Calendar } from "lucide-react";
+
+export default function Hero() {
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const imageY = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const textY = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  return (
+    <section
+      ref={ref}
+      className="relative flex min-h-screen items-center overflow-hidden bg-gradient-to-br from-white via-white to-beige-light/30"
+    >
+      {/* Decorative elements */}
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], [0, -60]) }}
+        className="absolute top-20 right-0 h-96 w-96 rounded-full bg-primary/5 blur-3xl"
+      />
+      <motion.div
+        style={{ y: useTransform(scrollYProgress, [0, 1], [0, 40]) }}
+        className="absolute bottom-20 left-0 h-64 w-64 rounded-full bg-beige/10 blur-3xl"
+      />
+
+      <div className="mx-auto max-w-7xl px-4 pt-24 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          {/* Text Content */}
+          <motion.div
+            style={{ y: textY, opacity }}
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center lg:text-left"
+          >
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="mb-4 inline-block font-[family-name:var(--font-caveat)] text-xl text-primary"
+            >
+              Finanzcoach & Vermögensberaterin
+            </motion.span>
+
+            <h1 className="mb-6 font-[family-name:var(--font-londrina)] text-5xl leading-tight text-dark sm:text-6xl lg:text-7xl">
+              Finanzielle Sicherheit beginnt mit{" "}
+              <span className="text-primary">Klarheit.</span>
+            </h1>
+
+            <p className="mb-10 max-w-xl text-lg leading-relaxed text-dark/70">
+              Unabhängige Analyse Ihrer Situation – persönlich & transparent.
+              Gemeinsam schaffen wir die Grundlage für Ihren langfristigen
+              Vermögensaufbau.
+            </p>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:justify-center lg:justify-start">
+              <motion.a
+                href="#schadenspruefung"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-base font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20"
+              >
+                <Shield size={20} />
+                Schaden prüfen lassen
+              </motion.a>
+              <motion.a
+                href="https://www.cal.eu/cristinacroussen/15min"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-dark/10 bg-white px-8 py-4 text-base font-semibold text-dark transition-all hover:border-primary hover:text-primary hover:shadow-lg"
+              >
+                <Calendar size={20} />
+                Kennenlerntermin buchen
+              </motion.a>
+            </div>
+
+            {/* Trust Badges */}
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 lg:justify-start">
+              {["DVAG Partner", "Persönliche Beratung", "Kostenlose Erstanalyse"].map(
+                (badge, i) => (
+                  <motion.div
+                    key={badge}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.8 + i * 0.1 }}
+                    className="flex items-center gap-2 text-sm text-dark/50"
+                  >
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10">
+                      <Shield size={14} className="text-primary" />
+                    </div>
+                    {badge}
+                  </motion.div>
+                )
+              )}
+            </div>
+          </motion.div>
+
+          {/* Profile Image with Parallax */}
+          <motion.div
+            style={{ y: imageY }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-2xl">
+              <Image
+                src="/images/profil.jpeg"
+                alt="Cristina Croußen – Finanzcoach & Vermögensberaterin"
+                fill
+                className="object-cover object-top"
+                priority
+                sizes="(max-width: 768px) 100vw, 448px"
+              />
+
+              {/* Decorative card */}
+              <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/90 p-4 shadow-lg backdrop-blur-sm">
+                <p className="font-[family-name:var(--font-caveat)] text-lg text-dark">
+                  &ldquo;Ihre finanzielle Zukunft verdient Aufmerksamkeit.&rdquo;
+                </p>
+                <p className="mt-1 text-sm font-medium text-primary">
+                  — Cristina Croußen
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
