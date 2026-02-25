@@ -20,7 +20,7 @@ type ThemeKey = keyof typeof themes;
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [activeTheme, setActiveTheme] = useState<ThemeKey>("orange");
+  const [activeTheme, setActiveTheme] = useState<ThemeKey>("rosa");
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -109,22 +109,29 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
             className="overflow-hidden bg-white shadow-lg md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
-              {navLinks.map((link) => (
-                <a
+              {navLinks.map((link, i) => (
+                <motion.a
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.05 + i * 0.05, duration: 0.25 }}
                   className="text-base font-medium text-dark transition-colors hover:text-primary"
                 >
                   {link.label}
-                </a>
+                </motion.a>
               ))}
               {/* Color Toggle - Mobile */}
-              <button
+              <motion.button
                 onClick={toggleTheme}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 + navLinks.length * 0.05, duration: 0.25 }}
                 className="flex items-center gap-2 text-base font-medium text-dark/50 transition-colors active:text-dark"
               >
                 <Palette size={18} />
@@ -133,15 +140,18 @@ export default function Header() {
                   className="inline-block h-5 w-5 rounded-full border border-dark/10"
                   style={{ background: themes[otherTheme].primary }}
                 />
-              </button>
-              <a
+              </motion.button>
+              <motion.a
                 href="https://www.cal.eu/cristinacroussen/15min"
                 target="_blank"
                 rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 + (navLinks.length + 1) * 0.05, duration: 0.25 }}
                 className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-primary-dark"
               >
                 Jetzt Termin buchen
-              </a>
+              </motion.a>
             </div>
           </motion.nav>
         )}
