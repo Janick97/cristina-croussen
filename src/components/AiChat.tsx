@@ -32,6 +32,17 @@ export default function AiChat() {
     if (open) inputRef.current?.focus();
   }, [open]);
 
+  // Prevent body scroll when chat is open on mobile
+  useEffect(() => {
+    if (open) {
+      const isMobile = window.innerWidth < 640;
+      if (isMobile) {
+        document.body.style.overflow = "hidden";
+        return () => { document.body.style.overflow = ""; };
+      }
+    }
+  }, [open]);
+
   const sendMessage = async (text: string) => {
     if (!text.trim() || loading) return;
 
@@ -91,7 +102,7 @@ export default function AiChat() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-5 left-4 z-40 flex items-center gap-2 rounded-full bg-dark px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-6 sm:left-6 sm:px-5 sm:py-3"
+            className="fixed bottom-6 left-4 z-[51] flex items-center gap-2 rounded-full bg-dark px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-8 sm:left-6 sm:px-5 sm:py-3"
           >
             <Sparkles size={18} className="text-primary-light" />
             <span className="hidden sm:inline">Versicherungs-Check</span>
@@ -107,23 +118,17 @@ export default function AiChat() {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="fixed bottom-0 left-0 right-0 z-50 flex flex-col overflow-hidden rounded-t-2xl border border-beige/30 bg-white shadow-2xl sm:bottom-6 sm:left-6 sm:right-auto sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl"
-            style={{ height: "min(520px, 90dvh)" }}
+            className="fixed inset-0 z-50 flex flex-col overflow-hidden bg-white sm:inset-auto sm:bottom-6 sm:left-6 sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl sm:border sm:border-beige/30 sm:shadow-2xl"
           >
             {/* Header */}
-            <div className="flex items-center justify-between bg-dark px-5 py-4">
+            <div className="flex items-center justify-between bg-dark px-5 pt-[max(1rem,env(safe-area-inset-top))] pb-4 sm:py-4">
               <div className="flex items-center gap-3">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary/20">
                   <Bot size={20} className="text-primary-light" />
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-white">
-                    Versicherungs-Assistent
-                  </p>
-                  <p className="text-xs text-white/50">
-                    Powered by KI
-                  </p>
-                </div>
+                <p className="text-sm font-semibold text-white">
+                  Versicherungs-Assistent
+                </p>
               </div>
               <button
                 onClick={() => setOpen(false)}
@@ -160,7 +165,7 @@ export default function AiChat() {
                       <button
                         key={q}
                         onClick={() => sendMessage(q)}
-                        className="block w-full rounded-xl border border-beige/40 px-4 py-2.5 text-left text-sm text-dark/70 transition-all hover:border-primary/30 hover:bg-primary/5"
+                        className="block w-full rounded-xl border border-beige/40 px-4 py-3 text-left text-sm text-dark/70 transition-all hover:border-primary/30 hover:bg-primary/5 active:bg-primary/10 sm:py-2.5"
                       >
                         {q}
                       </button>
@@ -199,7 +204,7 @@ export default function AiChat() {
             </div>
 
             {/* Input */}
-            <div className="border-t border-beige/20 px-4 py-3">
+            <div className="border-t border-beige/20 px-4 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -214,12 +219,12 @@ export default function AiChat() {
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Ihre Frage..."
                   disabled={loading}
-                  className="flex-1 rounded-xl border border-beige/40 px-4 py-2.5 text-sm text-dark outline-none transition-all placeholder:text-dark/30 focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:opacity-50"
+                  className="flex-1 rounded-xl border border-beige/40 px-4 py-3 text-base text-dark outline-none transition-all placeholder:text-dark/30 focus:border-primary focus:ring-2 focus:ring-primary/20 disabled:opacity-50 sm:py-2.5 sm:text-sm"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || loading}
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition-all hover:bg-primary-dark disabled:opacity-30"
+                  className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary text-white transition-all hover:bg-primary-dark active:scale-95 disabled:opacity-30 sm:h-10 sm:w-10"
                 >
                   <Send size={16} />
                 </button>

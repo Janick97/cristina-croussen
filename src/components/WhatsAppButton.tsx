@@ -15,10 +15,9 @@ export default function WhatsAppButton() {
       transition={{ delay: 1, type: "spring" }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-5 right-4 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-shadow hover:shadow-xl hover:shadow-[#25D366]/40 sm:bottom-6 sm:right-6 sm:h-14 sm:w-14"
+      className="fixed bottom-6 right-4 z-[51] flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/30 transition-shadow hover:shadow-xl hover:shadow-[#25D366]/40 sm:bottom-8 sm:right-6 sm:h-14 sm:w-14"
     >
-      <MessageCircle size={24} fill="white" className="sm:hidden" />
-      <MessageCircle size={28} fill="white" className="hidden sm:block" />
+      <MessageCircle size={26} fill="white" />
     </motion.a>
   );
 }
