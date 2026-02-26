@@ -11,9 +11,9 @@ const faqs = [
       "Die Erstberatung und Analyse Ihrer finanziellen Situation ist für Sie kostenlos und unverbindlich. Ich nehme mir Zeit, Ihre individuelle Lage zu verstehen, bevor wir gemeinsam über mögliche Strategien sprechen.",
   },
   {
-    question: "Wie läuft eine Schadensprüfung ab?",
+    question: "Wie läuft die Schadensprüfung ab?",
     answer:
-      "Schildern Sie mir Ihren Schadensfall über das Formular oder telefonisch. Ich prüfe dann Ihre Ansprüche, kontaktiere die zuständige Versicherung und begleite Sie durch den gesamten Prozess – bis zur Auszahlung.",
+      "Als aktive Kundin oder aktiver Kunde bei mir reichen Sie einfach Ihren Schadensfall über das Formular oder telefonisch ein – ich kümmere mich um alles Weitere, kontaktiere die zuständige Versicherung und begleite Sie bis zur Auszahlung. Auch als Fremdkunde können Sie meine Schadensprüfung nutzen: Laden Sie Ihren Versicherungsschein hoch, und ich prüfe Ihre Ansprüche kostenlos und unverbindlich.",
   },
   {
     question: "Für welche Versicherungen sind Sie zuständig?",
@@ -29,6 +29,11 @@ const faqs = [
     question: "Wie unterscheidet sich die DVAG von anderen Beratungen?",
     answer:
       "Die Deutsche Vermögensberatung steht seit über 45 Jahren für ganzheitliche Finanzplanung. Statt einzelner Produkte betrachten wir Ihre gesamte finanzielle Situation und entwickeln eine maßgeschneiderte Strategie.",
+  },
+  {
+    question: "Seit wann gibt es die DVAG?",
+    answer:
+      "Die Deutsche Vermögensberatung (DVAG) besteht seit über 50 Jahren und gehört zu den größten Finanzvertrieben Deutschlands.",
   },
   {
     question: "Wie kann ich einen Termin vereinbaren?",

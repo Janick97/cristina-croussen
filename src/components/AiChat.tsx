@@ -34,11 +34,15 @@ export default function AiChat() {
     if (open && window.innerWidth >= 640) inputRef.current?.focus();
   }, [open]);
 
-  // Prevent body scroll when chat is open
+  // Prevent body scroll when chat is open & notify other components
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-      return () => { document.body.style.overflow = ""; };
+      window.dispatchEvent(new CustomEvent("aichat-toggle", { detail: { open: true } }));
+      return () => {
+        document.body.style.overflow = "";
+        window.dispatchEvent(new CustomEvent("aichat-toggle", { detail: { open: false } }));
+      };
     }
   }, [open]);
 

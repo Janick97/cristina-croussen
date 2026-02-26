@@ -1,43 +1,36 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PhoneCall, ClipboardList, Lightbulb, Rocket, Handshake } from "lucide-react";
+import { Search, ClipboardList, Rocket, Handshake } from "lucide-react";
 
 const steps = [
   {
-    icon: PhoneCall,
+    icon: Search,
     step: "01",
-    title: "Erstgespräch",
+    title: "Finanzanalyse",
     description:
-      "Wir lernen uns kennen und besprechen Ihre aktuelle finanzielle Situation und Ihre Ziele.",
+      "Im ersten Gespräch lernen wir uns kennen. Wir analysieren deine aktuelle Situation, deine Ziele und Wünsche.",
   },
   {
     icon: ClipboardList,
     step: "02",
-    title: "Analyse",
+    title: "Individuelle Planung",
     description:
-      "Ich analysiere Ihre bestehenden Verträge, Versicherungen und Vorsorge auf Optimierungspotenzial.",
-  },
-  {
-    icon: Lightbulb,
-    step: "03",
-    title: "Strategie",
-    description:
-      "Gemeinsam entwickeln wir einen individuellen Plan, der perfekt auf Ihre Lebenssituation passt.",
+      "Basierend auf unserem Gespräch entwickle ich eine maßgeschneiderte Strategie.",
   },
   {
     icon: Rocket,
-    step: "04",
+    step: "03",
     title: "Umsetzung",
     description:
-      "Ich begleite Sie bei der Umsetzung und stehe Ihnen auch langfristig als Ansprechpartnerin zur Seite.",
+      "Wir setzen gemeinsam die passende Lösung um.",
   },
   {
     icon: Handshake,
-    step: "05",
-    title: "Partnerschaft",
+    step: "04",
+    title: "Dauerhafte Partnerschaft",
     description:
-      "Meine Beratung endet nicht nach dem Abschluss. Ich begleite Sie langfristig durch alle Lebensphasen und passe Ihre Strategie an neue Situationen an.",
+      "Ich begleite dich langfristig und stehe dir als Ansprechpartnerin zur Seite.",
   },
 ];
 
@@ -52,10 +45,10 @@ export default function ProcessTimeline() {
           className="text-center"
         >
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
-            So läuft es ab
+            Schritt für Schritt
           </span>
           <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
-            Ihr Weg zur finanziellen Klarheit
+            So arbeiten wir zusammen
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
         </motion.div>
@@ -99,8 +92,8 @@ export default function ProcessTimeline() {
             ))}
           </div>
 
-          {/* Tablet: 2-3 column grid */}
-          <div className="hidden gap-6 sm:grid sm:grid-cols-3 lg:hidden">
+          {/* Tablet: 2-column grid */}
+          <div className="hidden gap-6 sm:grid sm:grid-cols-2 lg:hidden">
             {steps.map((step, index) => (
               <motion.div
                 key={step.step}
@@ -129,8 +122,8 @@ export default function ProcessTimeline() {
             ))}
           </div>
 
-          {/* Desktop: 5-column grid */}
-          <div className="hidden lg:grid lg:grid-cols-5 lg:gap-8">
+          {/* Desktop: 4-column grid */}
+          <div className="hidden lg:grid lg:grid-cols-4 lg:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.step}

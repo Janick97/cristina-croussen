@@ -31,26 +31,37 @@ const assistant = Assistant({
 });
 
 export const metadata: Metadata = {
-  title: "Cristina Croußen | Finanzcoach & Vermögensberaterin",
+  metadataBase: new URL("https://cristinacroussen.de"),
+  title: "Cristina Croußen | Finanzcoach Heinsberg – DVAG Beratung & Schadensprüfung",
   description:
-    "Unabhängige Finanzberatung & Vermögensaufbau mit Cristina Croußen. Schadensprüfung, persönliche Beratung und langfristige Finanzplanung in Heinsberg.",
+    "Finanzcoach Heinsberg: Cristina Croußen bietet persönliche DVAG Beratung, Schadensprüfung, Vermögensaufbau und Altersvorsorge. Kostenlose Erstanalyse – jetzt Termin buchen.",
   keywords: [
-    "Finanzberatung",
-    "Vermögensberatung",
-    "Heinsberg",
-    "DVAG",
+    "Finanzcoach Heinsberg",
+    "DVAG Beratung",
     "Schadensprüfung",
-    "Finanzcoach",
+    "Vermögensberatung",
+    "Finanzberatung Heinsberg",
     "Cristina Croußen",
+    "Altersvorsorge",
+    "Berufsunfähigkeit",
+    "Versicherungsberatung",
   ],
   authors: [{ name: "Cristina Croußen" }],
   openGraph: {
-    title: "Cristina Croußen | Finanzcoach & Vermögensberaterin",
+    title: "Cristina Croußen | Finanzcoach Heinsberg – DVAG Beratung",
     description:
-      "Unabhängige Finanzberatung & Vermögensaufbau – persönlich & transparent.",
+      "Persönliche Finanzberatung & Schadensprüfung in Heinsberg. Kostenlose Erstanalyse mit Cristina Croußen – DVAG Vermögensberaterin.",
     type: "website",
     locale: "de_DE",
     siteName: "Cristina Croußen Finanzberatung",
+    images: [
+      {
+        url: "/images/profil.jpeg",
+        width: 800,
+        height: 1000,
+        alt: "Cristina Croußen – Finanzcoach & Vermögensberaterin",
+      },
+    ],
   },
   robots: {
     index: true,

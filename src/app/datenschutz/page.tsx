@@ -9,6 +9,12 @@ export default function Datenschutz() {
   return (
     <div className="min-h-screen bg-white pt-28 pb-20">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+        <a
+          href="/"
+          className="mb-6 inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary-dark"
+        >
+          ← Zurück zur Startseite
+        </a>
         <h1 className="font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
           Datenschutzerklärung
         </h1>

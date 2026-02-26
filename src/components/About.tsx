@@ -164,6 +164,15 @@ export default function About() {
               passende Strategie entwickeln.
             </p>
 
+            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
+              Meine Mission
+            </h4>
+            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
+              Ich unterstütze Menschen dabei, ihre Träume klar zu definieren,
+              finanzielle Ziele zu erreichen und Erinnerungen zu schaffen – mit
+              der richtigen Strategie und Absicherung im Rücken.
+            </p>
+
             <TypewriterQuote />
           </motion.div>
         </div>

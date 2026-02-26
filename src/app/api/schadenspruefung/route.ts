@@ -8,11 +8,23 @@ export async function POST(request: Request) {
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const telefon = formData.get("telefon") as string;
-    const versicherungsart = formData.get("versicherungsart") as string;
+    const kundeBeicristina = formData.get("kundeBeicristina") as string;
     const beschreibung = formData.get("beschreibung") as string;
     const datenschutz = formData.get("datenschutz") as string;
 
-    if (!name || !email || !versicherungsart || !beschreibung || datenschutz !== "true") {
+    if (!name || !email || !kundeBeicristina || !beschreibung || datenschutz !== "true") {
+      return NextResponse.json(
+        { error: "Bitte füllen Sie alle Pflichtfelder aus." },
+        { status: 400 }
+      );
+    }
+
+    // Conditional fields
+    const versicherungsart = formData.get("versicherungsart") as string;
+    const versicherungsgesellschaft = formData.get("versicherungsgesellschaft") as string;
+    const produktart = formData.get("produktart") as string;
+
+    if (kundeBeicristina === "nein" && (!versicherungsgesellschaft || !produktart)) {
       return NextResponse.json(
         { error: "Bitte füllen Sie alle Pflichtfelder aus." },
         { status: 400 }
@@ -24,8 +36,27 @@ export async function POST(request: Request) {
       .filter((f) => f.size > 0)
       .map((f) => f.name);
 
+    const versicherungsschein = formData.get("versicherungsschein") as File | null;
+    if (versicherungsschein && versicherungsschein.size > 0) {
+      fileNames.push(`Versicherungsschein: ${versicherungsschein.name}`);
+    }
+
+    const kundeLabel = kundeBeicristina === "ja" ? "Ja (Bestandskunde)" : "Nein (Fremdkunde)";
+
+    let conditionalRows = "";
+    if (kundeBeicristina === "ja") {
+      conditionalRows = `
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Versicherungsart</td><td style="padding:8px;border-bottom:1px solid #eee">${versicherungsart || "–"}</td></tr>
+      `;
+    } else {
+      conditionalRows = `
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Versicherungsgesellschaft</td><td style="padding:8px;border-bottom:1px solid #eee">${versicherungsgesellschaft}</td></tr>
+        <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Produktart</td><td style="padding:8px;border-bottom:1px solid #eee">${produktart}</td></tr>
+      `;
+    }
+
     await sendMail({
-      subject: `Neue Schadensprüfung von ${name} – ${versicherungsart}`,
+      subject: `Neue Schadensprüfung von ${name} (${kundeLabel})`,
       replyTo: email,
       html: `
         <h2>Neue Schadensprüfung</h2>
@@ -33,7 +64,8 @@ export async function POST(request: Request) {
           <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Name</td><td style="padding:8px;border-bottom:1px solid #eee">${name}</td></tr>
           <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">E-Mail</td><td style="padding:8px;border-bottom:1px solid #eee"><a href="mailto:${email}">${email}</a></td></tr>
           <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Telefon</td><td style="padding:8px;border-bottom:1px solid #eee">${telefon || "–"}</td></tr>
-          <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Versicherungsart</td><td style="padding:8px;border-bottom:1px solid #eee">${versicherungsart}</td></tr>
+          <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Kunde bei Cristina</td><td style="padding:8px;border-bottom:1px solid #eee">${kundeLabel}</td></tr>
+          ${conditionalRows}
           <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Beschreibung</td><td style="padding:8px;border-bottom:1px solid #eee">${beschreibung.replace(/\n/g, "<br>")}</td></tr>
           <tr><td style="padding:8px;border-bottom:1px solid #eee;font-weight:bold">Dokumente</td><td style="padding:8px;border-bottom:1px solid #eee">${fileNames.length > 0 ? fileNames.join(", ") : "Keine"}</td></tr>
         </table>

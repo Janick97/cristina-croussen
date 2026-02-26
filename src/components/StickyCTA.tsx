@@ -30,11 +30,11 @@ export default function StickyCTA() {
         >
           <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 sm:py-2.5 lg:px-8">
             <p className="hidden text-sm text-dark/70 sm:block">
-              <span className="font-semibold text-dark">Kostenlose Erstberatung</span>
+              <span className="font-semibold text-dark">Jetzt Finanzanalyse starten</span>
               {" "}– Lassen Sie uns über Ihre finanzielle Zukunft sprechen.
             </p>
             <p className="text-xs font-semibold text-dark sm:hidden">
-              Kostenlose Erstberatung sichern
+              Jetzt Finanzanalyse starten
             </p>
 
             <div className="flex items-center gap-2 sm:gap-3">

@@ -69,7 +69,7 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 sm:px-8 sm:py-4 sm:text-base"
               >
                 <Shield size={18} />
-                Schaden prüfen lassen
+                Schadensfall prüfen lassen
               </motion.a>
               <motion.a
                 href="https://www.cal.eu/cristinacroussen/15min"
@@ -80,7 +80,7 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-dark/10 bg-white px-6 py-3.5 text-sm font-semibold text-dark transition-all hover:border-primary hover:text-primary hover:shadow-lg sm:px-8 sm:py-4 sm:text-base"
               >
                 <Calendar size={18} />
-                Kennenlerntermin buchen
+                Kostenloses Kennenlerngespräch buchen
               </motion.a>
             </div>
 
