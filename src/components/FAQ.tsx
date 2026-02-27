@@ -35,6 +35,11 @@ const faqs = [
     answer:
       "Am einfachsten über mein Online-Buchungssystem auf dieser Website, per WhatsApp an 0160 92282112 oder über das Kontaktformular. Ich melde mich zeitnah bei Ihnen.",
   },
+  {
+    question: "Wie behalte ich den Überblick über alle meine Verträge und Versicherungen?",
+    answer:
+      "Mit der kostenlosen App „MeineApp" der DVAG haben Sie Ihre Verträge, Versicherungen, Altersvorsorge und Vermögenswerte jederzeit auf dem Smartphone im Blick. Sie können Ihre Daten auch mit der Familie teilen und sicher Dokumente austauschen. Die App ist kostenlos im Apple App Store und Google Play Store verfügbar – einfach nach „MeineApp DVAG" suchen oder direkt hier öffnen: www.meineapp.dvag",
+  },
 ];
 
 export default function FAQ() {
@@ -93,7 +98,21 @@ export default function FAQ() {
                     transition={{ duration: 0.2 }}
                   >
                     <p className="px-4 pb-4 text-sm leading-relaxed text-dark/60 sm:px-6 sm:pb-5 sm:text-base">
-                      {faq.answer}
+                      {faq.answer.split(/(www\.meineapp\.dvag)/).map((part, j) =>
+                        part === "www.meineapp.dvag" ? (
+                          <a
+                            key={j}
+                            href="https://www.meineapp.dvag/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-medium text-primary underline underline-offset-2 hover:text-primary-dark"
+                          >
+                            {part}
+                          </a>
+                        ) : (
+                          part
+                        )
+                      )}
                     </p>
                   </motion.div>
                 )}
