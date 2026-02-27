@@ -144,8 +144,8 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-            className="overflow-hidden bg-white shadow-lg md:hidden"
+            transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
+            className="overflow-hidden bg-white/98 shadow-lg backdrop-blur-md md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
               {navLinks.map((link, i) => (
@@ -153,9 +153,9 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  initial={{ opacity: 0, x: -12 }}
+                  initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 + i * 0.05, duration: 0.25 }}
+                  transition={{ delay: i * 0.03, duration: 0.2 }}
                   className="text-base font-medium text-dark transition-colors hover:text-primary"
                 >
                   {link.label}
@@ -164,9 +164,9 @@ export default function Header() {
               {/* Notfallhotlines - Mobile */}
               <motion.button
                 onClick={() => { setHotlineOpen(true); setIsOpen(false); }}
-                initial={{ opacity: 0, x: -12 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 + navLinks.length * 0.05, duration: 0.25 }}
+                transition={{ delay: navLinks.length * 0.03, duration: 0.2 }}
                 className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-600 transition-all active:bg-red-100"
               >
                 <Phone size={16} />
@@ -175,9 +175,9 @@ export default function Header() {
               {/* Color Toggle - Mobile */}
               <motion.button
                 onClick={toggleTheme}
-                initial={{ opacity: 0, x: -12 }}
+                initial={{ opacity: 0, x: -8 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.05 + navLinks.length * 0.05, duration: 0.25 }}
+                transition={{ delay: (navLinks.length + 1) * 0.03, duration: 0.2 }}
                 className="flex items-center gap-2 text-base font-medium text-dark/50 transition-colors active:text-dark"
               >
                 <Palette size={18} />
@@ -191,9 +191,9 @@ export default function Header() {
                 href="https://www.cal.eu/cristinacroussen/15min"
                 target="_blank"
                 rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + (navLinks.length + 1) * 0.05, duration: 0.25 }}
+                transition={{ delay: (navLinks.length + 2) * 0.03, duration: 0.2 }}
                 className="mt-2 rounded-full bg-primary px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-primary-dark"
               >
                 Jetzt Termin buchen
@@ -219,7 +219,7 @@ export default function Header() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl"
+                className="max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl border-2 border-primary bg-white p-5 shadow-2xl"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
