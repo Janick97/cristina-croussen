@@ -156,9 +156,9 @@ export default function About() {
             </h4>
             <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
               Mit kaufmännischer Ausbildung und kontinuierlicher Weiterbildung
-              im Finanzbereich habe ich meine Berufung gefunden: Menschen dabei
-              zu unterstützen, finanzielle Klarheit zu gewinnen und
-              selbstbewusste Entscheidungen zu treffen.
+              im Finanzbereich habe ich früh gelernt, wie wichtig finanzielle
+              Klarheit für selbstbewusste Entscheidungen ist – und daraus
+              meinen Beruf gemacht.
             </p>
 
             <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
