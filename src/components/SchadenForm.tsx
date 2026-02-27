@@ -240,36 +240,41 @@ export default function SchadenForm() {
               />
             </div>
 
-            {/* Kunde bei Cristina? */}
+            {/* Schon Kunde? */}
             <div className="sm:col-span-2">
               <p className="mb-3 text-sm font-medium text-dark">
-                Kunde bei Cristina? *
+                Schon Kunde bei Cristina? *
               </p>
-              <div className="flex gap-6">
-                <label className="flex cursor-pointer items-center gap-2">
-                  <input
-                    type="radio"
-                    name="kundeBeicristina"
-                    value="ja"
-                    required
-                    checked={formData.kundeBeicristina === "ja"}
-                    onChange={handleChange}
-                    className="h-4 w-4 accent-primary"
-                  />
-                  <span className="text-sm text-dark">Ja</span>
-                </label>
-                <label className="flex cursor-pointer items-center gap-2">
-                  <input
-                    type="radio"
-                    name="kundeBeicristina"
-                    value="nein"
-                    checked={formData.kundeBeicristina === "nein"}
-                    onChange={handleChange}
-                    className="h-4 w-4 accent-primary"
-                  />
-                  <span className="text-sm text-dark">Nein</span>
-                </label>
+              <div className="flex gap-3">
+                {[{ value: "ja", label: "Ja, ich bin Kunde" }, { value: "nein", label: "Nein, noch nicht" }].map(
+                  (opt) => (
+                    <button
+                      key={opt.value}
+                      type="button"
+                      onClick={() =>
+                        setFormData((prev) => ({ ...prev, kundeBeicristina: opt.value }))
+                      }
+                      className={`flex-1 rounded-xl border-2 px-4 py-3 text-sm font-semibold transition-all ${
+                        formData.kundeBeicristina === opt.value
+                          ? "border-[#D9A397] bg-[#D9A397]/10 text-[#C48B7E]"
+                          : "border-beige/50 bg-white text-dark/50 hover:border-[#D9A397]/50"
+                      }`}
+                    >
+                      {opt.label}
+                    </button>
+                  )
+                )}
               </div>
+              {/* Hidden input for form validation */}
+              <input
+                type="text"
+                name="kundeBeicristina"
+                required
+                value={formData.kundeBeicristina}
+                onChange={() => {}}
+                className="sr-only"
+                aria-hidden="true"
+              />
             </div>
 
             {/* Conditional fields for existing customers */}
