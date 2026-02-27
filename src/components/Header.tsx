@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Palette } from "lucide-react";
+import { Menu, X, Palette, Phone, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -18,9 +18,35 @@ const themes = {
 };
 type ThemeKey = keyof typeof themes;
 
+const hotlines = [
+  { emoji: "🚙", label: "KFZ Schaden", numbers: ["+49 40237723448"] },
+  {
+    emoji: "🚙",
+    label: "Schutzbrief bei Panne",
+    numbers: ["+49 8955987261", "+49 8001304060"],
+    note: "24h Hotline",
+  },
+  { emoji: "💥", label: "Haftpflicht", numbers: ["+49 40237723399"] },
+  { emoji: "🏠", label: "Hausrat", numbers: ["+49 40237723238"] },
+  {
+    emoji: "🍀",
+    label: "Haus- & Wohnungsschutzbrief",
+    numbers: ["+49 8955987661"],
+  },
+  { emoji: "🏡", label: "Wohngebäude", numbers: ["+49 4023772-3352"] },
+  { emoji: "🩹", label: "Unfall", numbers: ["+49 91113361414"] },
+  {
+    emoji: "💻",
+    label: "Unfall Schadensmeldung online",
+    link: "https://www.generali.de/service-kontakt/schaden-melden",
+  },
+  { emoji: "⚖️", label: "Rechtsschutz Fragen", numbers: ["+49 40237310"] },
+];
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hotlineOpen, setHotlineOpen] = useState(false);
   const [activeTheme, setActiveTheme] = useState<ThemeKey>("rosa");
 
   useEffect(() => {
@@ -70,6 +96,14 @@ export default function Header() {
                 {link.label}
               </a>
             ))}
+            {/* Notfallhotlines - Desktop */}
+            <button
+              onClick={() => setHotlineOpen(true)}
+              className="flex items-center gap-1.5 rounded-full border border-red-200 bg-red-50 px-3 py-1.5 text-xs font-semibold text-red-600 transition-all hover:bg-red-100"
+            >
+              <Phone size={13} />
+              Notfallhotlines
+            </button>
             {/* Color Toggle - Desktop */}
             <button
               onClick={toggleTheme}
@@ -127,6 +161,17 @@ export default function Header() {
                   {link.label}
                 </motion.a>
               ))}
+              {/* Notfallhotlines - Mobile */}
+              <motion.button
+                onClick={() => { setHotlineOpen(true); setIsOpen(false); }}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.05 + navLinks.length * 0.05, duration: 0.25 }}
+                className="flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2.5 text-sm font-semibold text-red-600 transition-all active:bg-red-100"
+              >
+                <Phone size={16} />
+                Notfallhotlines
+              </motion.button>
               {/* Color Toggle - Mobile */}
               <motion.button
                 onClick={toggleTheme}
@@ -155,6 +200,96 @@ export default function Header() {
               </motion.a>
             </div>
           </motion.nav>
+        )}
+      </AnimatePresence>
+      {/* Notfallhotlines Modal */}
+      <AnimatePresence>
+        {hotlineOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm"
+              onClick={() => setHotlineOpen(false)}
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-x-4 top-[5vh] z-[101] mx-auto max-h-[90vh] max-w-lg overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:inset-x-auto sm:p-8"
+            >
+              <div className="flex items-start justify-between">
+                <div>
+                  <p className="text-2xl">🚨</p>
+                  <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
+                    Notfallhotlines
+                  </h2>
+                  <p className="mt-1 text-sm leading-relaxed text-dark/60">
+                    Für alle Notfälle und zur schnelleren Unterstützung empfehle
+                    ich dir die Hotlines unserer Spezialisten der
+                    Schadensabteilungen:
+                  </p>
+                </div>
+                <button
+                  onClick={() => setHotlineOpen(false)}
+                  className="ml-4 shrink-0 rounded-full p-2 text-dark/40 transition-colors hover:bg-dark/5 hover:text-dark"
+                >
+                  <X size={20} />
+                </button>
+              </div>
+
+              <div className="mt-6 space-y-3">
+                {hotlines.map((item, i) => (
+                  <div
+                    key={i}
+                    className="rounded-2xl border border-beige/30 bg-beige-light/10 p-4"
+                  >
+                    <p className="flex items-center gap-2 text-sm font-semibold text-dark">
+                      <span>{item.emoji}</span>
+                      {item.label}
+                    </p>
+                    {item.numbers && (
+                      <div className="mt-2 flex flex-wrap gap-2">
+                        {item.numbers.map((num) => (
+                          <a
+                            key={num}
+                            href={`tel:${num.replace(/[\s-]/g, "")}`}
+                            className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary-dark transition-colors hover:bg-primary/20"
+                          >
+                            <Phone size={13} />
+                            {num}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+                    {item.note && (
+                      <p className="mt-1.5 text-xs text-dark/40">{item.note}</p>
+                    )}
+                    {item.link && (
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary-dark transition-colors hover:bg-primary/20"
+                      >
+                        <ExternalLink size={13} />
+                        Zur Online-Meldung
+                      </a>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              <button
+                onClick={() => setHotlineOpen(false)}
+                className="mt-6 w-full rounded-full bg-dark py-3 text-sm font-semibold text-white transition-colors hover:bg-dark/80"
+              >
+                Schließen
+              </button>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </header>
