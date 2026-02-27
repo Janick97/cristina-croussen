@@ -244,7 +244,7 @@ export default function Header() {
                     </button>
                   </div>
                   <p className="shrink-0 px-5 pt-3 pb-2 text-xs leading-relaxed text-dark/60">
-                    Als Ihre persönliche Ansprechpartnerin kümmere ich mich um alles – von der ersten Meldung bis zur Abwicklung. Diese Notfallnummern sind ausschließlich für den äußersten Ernstfall gedacht: bei akuten Notfallschäden oder kurzfristigen Schadenfällen, die keinen Aufschub dulden – etwa nachts, am Wochenende oder an Feiertagen, wenn ich nicht erreichbar bin.
+                    Für alles sind Sie bei mir bestens aufgehoben. Diese Nummern sind nur für echte Notfälle – wenn ein Schaden keinen Aufschub duldet und ich nicht erreichbar bin.
                   </p>
 
                   {/* Scrollable list */}
