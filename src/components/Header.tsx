@@ -3,7 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
 import Link from "next/link";
-import { Menu, X, Palette, Phone, ExternalLink } from "lucide-react";
+import { Menu, X, Palette, Phone, ExternalLink, Car, Wrench, Shield, Home, KeyRound, Building2, HeartPulse, Monitor, Scale } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -19,29 +20,29 @@ const themes = {
 };
 type ThemeKey = keyof typeof themes;
 
-const hotlines = [
-  { emoji: "🚙", label: "KFZ Schaden", numbers: ["+49 40237723448"] },
+const hotlines: { icon: LucideIcon; label: string; numbers?: string[]; note?: string; link?: string }[] = [
+  { icon: Car, label: "KFZ Schaden", numbers: ["+49 40237723448"] },
   {
-    emoji: "🚙",
+    icon: Wrench,
     label: "Schutzbrief bei Panne",
     numbers: ["+49 8955987261", "+49 8001304060"],
     note: "24h Hotline",
   },
-  { emoji: "💥", label: "Haftpflicht", numbers: ["+49 40237723399"] },
-  { emoji: "🏠", label: "Hausrat", numbers: ["+49 40237723238"] },
+  { icon: Shield, label: "Haftpflicht", numbers: ["+49 40237723399"] },
+  { icon: Home, label: "Hausrat", numbers: ["+49 40237723238"] },
   {
-    emoji: "🍀",
+    icon: KeyRound,
     label: "Haus- & Wohnungsschutzbrief",
     numbers: ["+49 8955987661"],
   },
-  { emoji: "🏡", label: "Wohngebäude", numbers: ["+49 4023772-3352"] },
-  { emoji: "🩹", label: "Unfall", numbers: ["+49 91113361414"] },
+  { icon: Building2, label: "Wohngebäude", numbers: ["+49 4023772-3352"] },
+  { icon: HeartPulse, label: "Unfall", numbers: ["+49 91113361414"] },
   {
-    emoji: "💻",
+    icon: Monitor,
     label: "Unfall Schadensmeldung online",
     link: "https://www.generali.de/service-kontakt/schaden-melden",
   },
-  { emoji: "⚖️", label: "Rechtsschutz Fragen", numbers: ["+49 40237310"] },
+  { icon: Scale, label: "Rechtsschutz Fragen", numbers: ["+49 40237310"] },
 ];
 
 export default function Header() {
@@ -254,7 +255,7 @@ export default function Header() {
                           key={i}
                           className="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50/50 px-3 py-3"
                         >
-                          <span className="mt-0.5 text-lg leading-none">{item.emoji}</span>
+                          <item.icon size={20} color="#D9A397" className="mt-0.5 shrink-0" />
                           <div className="min-w-0 flex-1">
                             <p className="text-sm font-semibold text-dark">{item.label}</p>
                             {item.numbers && (
