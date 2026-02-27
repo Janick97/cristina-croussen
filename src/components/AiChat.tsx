@@ -34,6 +34,13 @@ export default function AiChat() {
     if (open && window.innerWidth >= 640) inputRef.current?.focus();
   }, [open]);
 
+  // Listen for open event from FloatingActions
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener("aichat-open", handler);
+    return () => window.removeEventListener("aichat-open", handler);
+  }, []);
+
   // Prevent body scroll when chat is open & notify other components
   useEffect(() => {
     if (open) {
@@ -117,25 +124,6 @@ export default function AiChat() {
 
   return (
     <>
-      {/* Chat Toggle Button */}
-      <AnimatePresence>
-        {!open && (
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setOpen(true)}
-            className="fixed bottom-6 left-4 z-[60] flex items-center gap-2 rounded-full bg-dark px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-8 sm:left-6 sm:px-5 sm:py-3"
-          >
-            <Sparkles size={18} className="text-primary-light" />
-            <span className="hidden sm:inline">Versicherungs-Check</span>
-            <span className="sm:hidden">KI-Chat</span>
-          </motion.button>
-        )}
-      </AnimatePresence>
-
       {/* Chat Window */}
       <AnimatePresence>
         {open && (
