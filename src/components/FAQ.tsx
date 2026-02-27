@@ -38,7 +38,7 @@ const faqs = [
   {
     question: "Wie behalte ich den Überblick über alle meine Verträge und Versicherungen?",
     answer:
-      "Mit der kostenlosen App „MeineApp" der DVAG haben Sie Ihre Verträge, Versicherungen, Altersvorsorge und Vermögenswerte jederzeit auf dem Smartphone im Blick. Sie können Ihre Daten auch mit der Familie teilen und sicher Dokumente austauschen. Die App ist kostenlos im Apple App Store und Google Play Store verfügbar – einfach nach „MeineApp DVAG" suchen oder direkt hier öffnen: www.meineapp.dvag",
+      "Mit der kostenlosen App \"MeineApp\" der DVAG haben Sie Ihre Verträge, Versicherungen, Altersvorsorge und Vermögenswerte jederzeit auf dem Smartphone im Blick. Sie können Ihre Daten auch mit der Familie teilen und sicher Dokumente austauschen. Die App ist kostenlos im Apple App Store und Google Play Store verfügbar – einfach nach \"MeineApp DVAG\" suchen oder direkt hier öffnen: www.meineapp.dvag",
   },
 ];
 
