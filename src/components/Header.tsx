@@ -244,7 +244,7 @@ export default function Header() {
                     </button>
                   </div>
                   <p className="shrink-0 px-5 pt-3 pb-2 text-xs leading-relaxed text-dark/60">
-                    Bei einem Schadensfall empfehle ich, sich direkt an die zuständigen Experten der Schadensabteilung zu wenden – besonders außerhalb der Geschäftszeiten, an Wochenenden oder Feiertagen, wenn schnelles Handeln gefragt ist.
+                    Als Ihre persönliche Ansprechpartnerin kümmere ich mich um alles – von der ersten Meldung bis zur Abwicklung. Diese Notfallnummern sind ausschließlich für den äußersten Ernstfall gedacht: bei akuten Notfallschäden oder kurzfristigen Schadenfällen, die keinen Aufschub dulden – etwa nachts, am Wochenende oder an Feiertagen, wenn ich nicht erreichbar bin.
                   </p>
 
                   {/* Scrollable list */}
