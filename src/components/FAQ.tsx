@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Für welche Versicherungen sind Sie zuständig?",
     answer:
-      "Als Vermögensberaterin der DVAG decke ich ein breites Spektrum ab: Haftpflicht, Hausrat, Wohngebäude, KFZ, Berufsunfähigkeit, Rechtsschutz, Unfall, Altersvorsorge und viele weitere. Sprechen Sie mich einfach an.",
+      "Als Vermögensberater Assistentin decke ich ein breites Spektrum ab: Haftpflicht, Hausrat, Wohngebäude, KFZ, Berufsunfähigkeit, Rechtsschutz, Unfall, Altersvorsorge und viele weitere. Sprechen Sie mich einfach an.",
   },
   {
     question: "Kann ich auch Online-Beratung erhalten?",
@@ -26,9 +26,9 @@ const faqs = [
       "Selbstverständlich! Ich biete persönliche Beratung vor Ort in Heinsberg sowie Video-Calls an. Buchen Sie einfach einen Termin über mein Online-Buchungssystem.",
   },
   {
-    question: "Wie unterscheidet sich die DVAG von anderen Beratungen?",
+    question: "Was zeichnet meine Beratung aus?",
     answer:
-      "Die Deutsche Vermögensberatung (DVAG) blickt auf über 50 Jahre Erfahrung zurück und steht für eine ganzheitliche Allfinanzberatung. Statt einzelner Produktlösungen steht ein individuelles Gesamtkonzept im Mittelpunkt – abgestimmt auf Ihre persönliche Lebenssituation.",
+      "Mein Ansatz ist ganzheitlich und persönlich – statt einzelner Produktlösungen steht ein individuelles Gesamtkonzept im Mittelpunkt, abgestimmt auf Ihre persönliche Lebenssituation. Sie haben eine Ansprechpartnerin für alles.",
   },
   {
     question: "Wie kann ich einen Termin vereinbaren?",

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Londrina_Solid, Caveat, Assistant } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -32,12 +32,12 @@ const assistant = Assistant({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cristinacroussen.de"),
-  title: "Cristina Croußen | Finanzcoach Heinsberg – DVAG Beratung & Schadensprüfung",
+  title: "Cristina Croußen | Finanzcoach Heinsberg – Finanzberatung & Schadensprüfung",
   description:
-    "Finanzcoach Heinsberg: Cristina Croußen bietet persönliche DVAG Beratung, Schadensprüfung, Vermögensaufbau und Altersvorsorge. Kostenlose Erstanalyse – jetzt Termin buchen.",
+    "Finanzcoach Heinsberg: Cristina Croußen bietet persönliche Finanzberatung, Schadensprüfung, Vermögensaufbau und Altersvorsorge. Kostenlose Erstanalyse – jetzt Termin buchen.",
   keywords: [
     "Finanzcoach Heinsberg",
-    "DVAG Beratung",
+    "Finanzberatung",
     "Schadensprüfung",
     "Vermögensberatung",
     "Finanzberatung Heinsberg",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Cristina Croußen" }],
   openGraph: {
-    title: "Cristina Croußen | Finanzcoach Heinsberg – DVAG Beratung",
+    title: "Cristina Croußen | Finanzcoach Heinsberg – Finanzberatung",
     description:
-      "Persönliche Finanzberatung & Schadensprüfung in Heinsberg. Kostenlose Erstanalyse mit Cristina Croußen – DVAG Vermögensberaterin.",
+      "Persönliche Finanzberatung & Schadensprüfung in Heinsberg. Kostenlose Erstanalyse mit Cristina Croußen – Vermögensberater Assistentin.",
     type: "website",
     locale: "de_DE",
     siteName: "Cristina Croußen Finanzberatung",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: "/images/profil.jpeg",
         width: 800,
         height: 1000,
-        alt: "Cristina Croußen – Finanzcoach & Vermögensberaterin",
+        alt: "Cristina Croußen – Finanzcoach & Vermögensberater Assistentin",
       },
     ],
   },

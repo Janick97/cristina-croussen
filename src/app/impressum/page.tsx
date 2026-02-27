@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum | Cristina Croußen",
-  description: "Impressum von Cristina Croußen, Finanzcoach & Vermögensberaterin der DVAG.",
+  description: "Impressum von Cristina Croußen, Finanzcoach & Vermögensberater Assistentin der DVAG.",
 };
 
 export default function Impressum() {

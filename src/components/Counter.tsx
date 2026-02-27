@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
-import { Users, Clock, Award, ThumbsUp } from "lucide-react";
+import { Clock, Award, ThumbsUp } from "lucide-react";
 
 const stats = [
-  { icon: Users, value: 8, suffix: " Mio+", label: "DVAG Kunden deutschlandweit" },
   { icon: Clock, value: 24, suffix: "h", label: "Reaktionszeit" },
   { icon: Award, value: 6, suffix: "+", label: "Jahre Erfahrung" },
   { icon: ThumbsUp, value: 100, suffix: "%", label: "Weiterempfehlung" },

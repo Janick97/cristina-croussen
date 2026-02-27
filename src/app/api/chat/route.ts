@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
+﻿import { NextResponse } from "next/server";
 
 const OLLAMA_URL = process.env.OLLAMA_URL || "http://localhost:11434";
 const OLLAMA_MODEL = process.env.OLLAMA_MODEL || "gemma3:4b";
 
-const SYSTEM_PROMPT = `Du bist der digitale Versicherungsassistent von Cristina Croußen, Finanzcoach und Vermögensberaterin bei der Deutschen Vermögensberatung (DVAG).
+const SYSTEM_PROMPT = `Du bist der digitale Versicherungsassistent von Cristina Croußen, Finanzcoach und Vermögensberater Assistentin bei der Deutschen Vermögensberatung (DVAG).
 
 Deine Aufgabe:
 - Beantworte Fragen zu Versicherungen und Schadensfällen verständlich und freundlich.

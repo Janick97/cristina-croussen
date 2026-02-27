@@ -148,7 +148,7 @@ export default function About() {
               Cristina Croußen
             </h3>
             <p className="mt-1 text-sm font-medium tracking-wide text-primary">
-              Finanzcoach & Vermögensberaterin | DVAG
+              Finanzcoach & Vermögensberater Assistentin
             </p>
 
             <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">

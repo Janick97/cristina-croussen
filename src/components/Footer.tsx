@@ -1,4 +1,4 @@
-import Link from "next/link";
+﻿import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -16,9 +16,7 @@ export default function Footer() {
               </span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-dark/50">
-              Finanzcoach & Vermögensberaterin
-              <br />
-              Deutsche Vermögensberatung (DVAG)
+              Finanzcoach & Vermögensberater Assistentin
             </p>
           </div>
 

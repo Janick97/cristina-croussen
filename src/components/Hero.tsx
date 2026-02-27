@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -47,7 +47,7 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-4 inline-block font-[family-name:var(--font-caveat)] text-lg text-primary sm:text-xl"
             >
-              Finanzcoach & Vermögensberaterin
+              Finanzcoach & Vermögensberater Assistentin
             </motion.span>
 
             <h1 className="mb-6 font-[family-name:var(--font-londrina)] text-4xl leading-tight text-dark sm:text-5xl lg:text-7xl">
@@ -86,7 +86,7 @@ export default function Hero() {
 
             {/* Trust Badges */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-12 sm:gap-8 lg:justify-start">
-              {["DVAG Partner", "Persönliche Beratung", "Kostenlose Erstanalyse"].map(
+              {["Zertifizierter Partner", "Persönliche Beratung", "Kostenlose Erstanalyse"].map(
                 (badge, i) => (
                   <motion.div
                     key={badge}
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-2xl">
               <Image
                 src="/images/profil.jpeg"
-                alt="Cristina Croußen – Finanzcoach & Vermögensberaterin"
+                alt="Cristina Croußen – Finanzcoach & Vermögensberater Assistentin"
                 fill
                 className="object-cover object-top"
                 priority

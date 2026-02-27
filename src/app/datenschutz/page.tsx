@@ -1,8 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Datenschutzerklärung | Cristina Croußen",
-  description: "Datenschutzerklärung von Cristina Croußen, Finanzcoach & Vermögensberaterin.",
+  description: "Datenschutzerklärung von Cristina Croußen, Finanzcoach & Vermögensberater Assistentin.",
 };
 
 export default function Datenschutz() {

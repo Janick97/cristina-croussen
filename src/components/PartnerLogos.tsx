@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 
 const partners = [
-  "Deutsche Vermögensberatung",
   "Generali",
   "Deutsche Bank",
   "AdvoCard",
