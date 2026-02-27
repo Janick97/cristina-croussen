@@ -244,7 +244,7 @@ export default function Header() {
                     </button>
                   </div>
                   <p className="shrink-0 px-5 pt-3 pb-2 text-xs leading-relaxed text-dark/60">
-                    Sie sind bei mir bestens aufgehoben. Manchmal dulden Schäden aber keinen Aufschub – die Nummern unserer Experten der Schadensabteilung dienen dem dringenden Notfall.
+                    Mein Ziel ist es, dass Sie bei uns bestens aufgehoben sind. Bei einem dringenden Schadensfall empfehle ich, sich direkt an die zuständigen Experten der Schadensabteilung zu wenden.
                   </p>
 
                   {/* Scrollable list */}
