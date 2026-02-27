@@ -151,13 +151,20 @@ export default function About() {
               Finanzcoach & Vermögensberaterin | DVAG
             </p>
 
-            <p className="mt-5 text-base leading-relaxed text-dark/70 sm:mt-6 sm:text-lg">
+            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
+              Mein Weg
+            </h4>
+            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
               Mit kaufmännischer Ausbildung und kontinuierlicher Weiterbildung
-              im Finanzbereich habe ich meine Berufung gefunden: Menschen
-              dabei zu unterstützen, finanzielle Klarheit zu gewinnen und
+              im Finanzbereich habe ich meine Berufung gefunden: Menschen dabei
+              zu unterstützen, finanzielle Klarheit zu gewinnen und
               selbstbewusste Entscheidungen zu treffen.
             </p>
-            <p className="mt-4 text-base leading-relaxed text-dark/70 sm:text-lg">
+
+            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
+              Meine Beratungsphilosophie
+            </h4>
+            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
               Gute Beratung beginnt dort, wo man den Menschen hinter den
               Zahlen versteht. Deshalb nehme ich mir Zeit, Ihre individuelle
               Situation wirklich kennenzulernen – bevor wir gemeinsam die
@@ -168,9 +175,9 @@ export default function About() {
               Meine Mission
             </h4>
             <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
-              Ich unterstütze Menschen dabei, ihre Träume klar zu definieren,
-              finanzielle Ziele zu erreichen und Erinnerungen zu schaffen – mit
-              der richtigen Strategie und Absicherung im Rücken.
+              Träume klar definieren, finanzielle Ziele erreichen und
+              Erinnerungen schaffen – mit der richtigen Strategie und
+              Absicherung im Rücken. Dafür stehe ich jeden Tag auf.
             </p>
 
             <TypewriterQuote />

@@ -28,12 +28,7 @@ const faqs = [
   {
     question: "Wie unterscheidet sich die DVAG von anderen Beratungen?",
     answer:
-      "Die Deutsche Vermögensberatung steht seit über 45 Jahren für ganzheitliche Finanzplanung. Statt einzelner Produkte betrachten wir Ihre gesamte finanzielle Situation und entwickeln eine maßgeschneiderte Strategie.",
-  },
-  {
-    question: "Seit wann gibt es die DVAG?",
-    answer:
-      "Die Deutsche Vermögensberatung (DVAG) besteht seit über 50 Jahren und gehört zu den größten Finanzvertrieben Deutschlands.",
+      "Die Deutsche Vermögensberatung (DVAG) blickt auf über 50 Jahre Erfahrung zurück und steht für eine ganzheitliche Allfinanzberatung. Statt einzelner Produktlösungen steht ein individuelles Gesamtkonzept im Mittelpunkt – abgestimmt auf Ihre persönliche Lebenssituation.",
   },
   {
     question: "Wie kann ich einen Termin vereinbaren?",
