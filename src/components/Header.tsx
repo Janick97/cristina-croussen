@@ -243,8 +243,8 @@ export default function Header() {
                       <X size={20} />
                     </button>
                   </div>
-                  <p className="shrink-0 px-5 pt-3 pb-1 text-xs leading-relaxed text-dark/50">
-                    Hotlines unserer Spezialisten der Schadensabteilungen:
+                  <p className="shrink-0 px-5 pt-3 pb-2 text-xs leading-relaxed text-dark/60">
+                    Bei einem Schadensfall empfehle ich, sich direkt an die zuständigen Experten der Schadensabteilung zu wenden – besonders außerhalb der Geschäftszeiten, an Wochenenden oder Feiertagen, wenn schnelles Handeln gefragt ist.
                   </p>
 
                   {/* Scrollable list */}
