@@ -213,82 +213,81 @@ export default function Header() {
               className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm"
               onClick={() => setHotlineOpen(false)}
             />
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              transition={{ duration: 0.2 }}
-              className="fixed inset-x-4 top-[5vh] z-[101] mx-auto max-h-[90vh] max-w-lg overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl sm:inset-x-auto sm:p-8"
-            >
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="text-2xl">🚨</p>
-                  <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
-                    Notfallhotlines
-                  </h2>
-                  <p className="mt-1 text-sm leading-relaxed text-dark/60">
-                    Für alle Notfälle und zur schnelleren Unterstützung empfehle
-                    ich dir die Hotlines unserer Spezialisten der
-                    Schadensabteilungen:
-                  </p>
+            <div className="fixed inset-0 z-[101] flex items-center justify-center p-4">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+                className="max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl"
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-xl">🚨</span>
+                    <h2 className="font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
+                      Notfallhotlines
+                    </h2>
+                  </div>
+                  <button
+                    onClick={() => setHotlineOpen(false)}
+                    className="shrink-0 rounded-full p-1.5 text-dark/40 transition-colors hover:bg-dark/5 hover:text-dark"
+                  >
+                    <X size={18} />
+                  </button>
                 </div>
+                <p className="mt-1 text-xs leading-relaxed text-dark/50">
+                  Hotlines unserer Spezialisten der Schadensabteilungen:
+                </p>
+
+                <div className="mt-4 grid gap-2">
+                  {hotlines.map((item, i) => (
+                    <div
+                      key={i}
+                      className="flex items-start gap-3 rounded-xl border border-beige/20 px-3 py-2.5"
+                    >
+                      <span className="mt-0.5 text-base leading-none">{item.emoji}</span>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs font-semibold text-dark">{item.label}</p>
+                        {item.numbers && (
+                          <div className="mt-1 flex flex-wrap gap-x-3 gap-y-1">
+                            {item.numbers.map((num) => (
+                              <a
+                                key={num}
+                                href={`tel:${num.replace(/[\s-]/g, "")}`}
+                                className="text-xs font-medium text-primary-dark transition-colors hover:text-primary"
+                              >
+                                {num}
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                        {item.note && (
+                          <p className="mt-0.5 text-[11px] text-dark/35">{item.note}</p>
+                        )}
+                        {item.link && (
+                          <a
+                            href={item.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-1 inline-flex items-center gap-1 text-xs font-medium text-primary-dark transition-colors hover:text-primary"
+                          >
+                            <ExternalLink size={11} />
+                            Online-Meldung
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
                 <button
                   onClick={() => setHotlineOpen(false)}
-                  className="ml-4 shrink-0 rounded-full p-2 text-dark/40 transition-colors hover:bg-dark/5 hover:text-dark"
+                  className="mt-4 w-full rounded-full bg-dark py-2.5 text-xs font-semibold text-white transition-colors hover:bg-dark/80"
                 >
-                  <X size={20} />
+                  Schließen
                 </button>
-              </div>
-
-              <div className="mt-6 space-y-3">
-                {hotlines.map((item, i) => (
-                  <div
-                    key={i}
-                    className="rounded-2xl border border-beige/30 bg-beige-light/10 p-4"
-                  >
-                    <p className="flex items-center gap-2 text-sm font-semibold text-dark">
-                      <span>{item.emoji}</span>
-                      {item.label}
-                    </p>
-                    {item.numbers && (
-                      <div className="mt-2 flex flex-wrap gap-2">
-                        {item.numbers.map((num) => (
-                          <a
-                            key={num}
-                            href={`tel:${num.replace(/[\s-]/g, "")}`}
-                            className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary-dark transition-colors hover:bg-primary/20"
-                          >
-                            <Phone size={13} />
-                            {num}
-                          </a>
-                        ))}
-                      </div>
-                    )}
-                    {item.note && (
-                      <p className="mt-1.5 text-xs text-dark/40">{item.note}</p>
-                    )}
-                    {item.link && (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-sm font-medium text-primary-dark transition-colors hover:bg-primary/20"
-                      >
-                        <ExternalLink size={13} />
-                        Zur Online-Meldung
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-
-              <button
-                onClick={() => setHotlineOpen(false)}
-                className="mt-6 w-full rounded-full bg-dark py-3 text-sm font-semibold text-white transition-colors hover:bg-dark/80"
-              >
-                Schließen
-              </button>
-            </motion.div>
+              </motion.div>
+            </div>
           </>
         )}
       </AnimatePresence>
