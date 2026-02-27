@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { Menu, X, Palette, Phone, ExternalLink } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -67,6 +68,7 @@ export default function Header() {
   const otherTheme = activeTheme === "orange" ? "rosa" : "orange";
 
   return (
+    <>
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
@@ -202,92 +204,98 @@ export default function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
-      {/* Notfallhotlines Modal */}
-      <AnimatePresence>
-        {hotlineOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-black/50 backdrop-blur-sm"
-              onClick={() => setHotlineOpen(false)}
-            />
-            <div className="fixed inset-0 z-[101] flex items-end justify-center sm:items-center sm:p-4">
-              <motion.div
-                initial={{ opacity: 0, y: 40 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: 40 }}
-                transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-                className="flex max-h-[90vh] w-full flex-col rounded-t-3xl bg-white shadow-2xl border-t-[3px] border-x-[3px] border-[#D9A397] sm:max-w-md sm:rounded-2xl sm:border-[3px]"
-              >
-                {/* Header */}
-                <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-xl">🚨</span>
-                    <h2 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
-                      Notfallhotlines
-                    </h2>
-                  </div>
-                  <button
-                    onClick={() => setHotlineOpen(false)}
-                    className="shrink-0 rounded-full p-2 text-dark/40 transition-colors active:bg-dark/5"
-                  >
-                    <X size={20} />
-                  </button>
-                </div>
-                <p className="shrink-0 px-5 pt-3 pb-1 text-xs leading-relaxed text-dark/50">
-                  Hotlines unserer Spezialisten der Schadensabteilungen:
-                </p>
-
-                {/* Scrollable list */}
-                <div className="overflow-y-auto px-4 pb-6">
-                  <div className="mt-2 grid gap-2">
-                    {hotlines.map((item, i) => (
-                      <div
-                        key={i}
-                        className="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50/50 px-3 py-3"
-                      >
-                        <span className="mt-0.5 text-lg leading-none">{item.emoji}</span>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm font-semibold text-dark">{item.label}</p>
-                          {item.numbers && (
-                            <div className="mt-1.5 flex flex-col gap-1">
-                              {item.numbers.map((num) => (
-                                <a
-                                  key={num}
-                                  href={`tel:${num.replace(/[\s-]/g, "")}`}
-                                  className="text-sm font-medium text-[#D9A397] active:opacity-70"
-                                >
-                                  {num}
-                                </a>
-                              ))}
-                            </div>
-                          )}
-                          {item.note && (
-                            <p className="mt-0.5 text-xs text-dark/40">{item.note}</p>
-                          )}
-                          {item.link && (
-                            <a
-                              href={item.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-[#D9A397] active:opacity-70"
-                            >
-                              <ExternalLink size={13} />
-                              Online-Meldung
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-          </>
-        )}
-      </AnimatePresence>
     </header>
+
+      {/* Notfallhotlines Modal — via Portal direkt im body, über allem */}
+      {typeof window !== "undefined" && createPortal(
+        <AnimatePresence>
+          {hotlineOpen && (
+            <>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                style={{ position: "fixed", inset: 0, zIndex: 9998, background: "rgba(0,0,0,0.5)", backdropFilter: "blur(4px)" }}
+                onClick={() => setHotlineOpen(false)}
+              />
+              <div style={{ position: "fixed", inset: 0, zIndex: 9999, display: "flex", alignItems: "flex-end", justifyContent: "center" }} className="sm:items-center sm:p-4">
+                <motion.div
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 40 }}
+                  transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  className="flex w-full flex-col rounded-t-3xl bg-white shadow-2xl border-t-[3px] border-x-[3px] border-[#D9A397] sm:max-w-md sm:rounded-2xl sm:border-[3px]"
+                  style={{ maxHeight: "85dvh" }}
+                >
+                  {/* Header */}
+                  <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
+                    <div className="flex items-center gap-2.5">
+                      <span className="text-xl">🚨</span>
+                      <h2 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+                        Notfallhotlines
+                      </h2>
+                    </div>
+                    <button
+                      onClick={() => setHotlineOpen(false)}
+                      className="shrink-0 rounded-full p-2 text-dark/40 transition-colors active:bg-dark/5"
+                    >
+                      <X size={20} />
+                    </button>
+                  </div>
+                  <p className="shrink-0 px-5 pt-3 pb-1 text-xs leading-relaxed text-dark/50">
+                    Hotlines unserer Spezialisten der Schadensabteilungen:
+                  </p>
+
+                  {/* Scrollable list */}
+                  <div className="overflow-y-auto px-4 pb-8">
+                    <div className="mt-2 grid gap-2">
+                      {hotlines.map((item, i) => (
+                        <div
+                          key={i}
+                          className="flex items-start gap-3 rounded-xl border border-gray-100 bg-gray-50/50 px-3 py-3"
+                        >
+                          <span className="mt-0.5 text-lg leading-none">{item.emoji}</span>
+                          <div className="min-w-0 flex-1">
+                            <p className="text-sm font-semibold text-dark">{item.label}</p>
+                            {item.numbers && (
+                              <div className="mt-1.5 flex flex-col gap-1">
+                                {item.numbers.map((num) => (
+                                  <a
+                                    key={num}
+                                    href={`tel:${num.replace(/[\s-]/g, "")}`}
+                                    className="text-sm font-medium text-[#D9A397] active:opacity-70"
+                                  >
+                                    {num}
+                                  </a>
+                                ))}
+                              </div>
+                            )}
+                            {item.note && (
+                              <p className="mt-0.5 text-xs text-dark/40">{item.note}</p>
+                            )}
+                            {item.link && (
+                              <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-1.5 inline-flex items-center gap-1 text-sm font-medium text-[#D9A397] active:opacity-70"
+                              >
+                                <ExternalLink size={13} />
+                                Online-Meldung
+                              </a>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </>
+          )}
+        </AnimatePresence>,
+        document.body
+      )}
+    </>
   );
 }

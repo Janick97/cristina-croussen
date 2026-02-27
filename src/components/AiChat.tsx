@@ -127,7 +127,7 @@ export default function AiChat() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 left-4 z-[51] flex items-center gap-2 rounded-full bg-dark px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-8 sm:left-6 sm:px-5 sm:py-3"
+            className="fixed bottom-6 left-4 z-[60] flex items-center gap-2 rounded-full bg-dark px-5 py-3.5 text-sm font-semibold text-white shadow-lg transition-shadow hover:shadow-xl sm:bottom-8 sm:left-6 sm:px-5 sm:py-3"
           >
             <Sparkles size={18} className="text-primary-light" />
             <span className="hidden sm:inline">Versicherungs-Check</span>
@@ -145,7 +145,7 @@ export default function AiChat() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-x-0 bottom-0 z-50 flex flex-col overflow-hidden bg-white sm:inset-auto sm:bottom-6 sm:left-6 sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl sm:border sm:border-beige/30 sm:shadow-2xl"
+            className="fixed inset-x-0 bottom-0 z-[60] flex flex-col overflow-hidden bg-white sm:inset-auto sm:bottom-6 sm:left-6 sm:h-[520px] sm:w-[380px] sm:max-w-[calc(100vw-3rem)] sm:rounded-2xl sm:border sm:border-beige/30 sm:shadow-2xl"
             style={{
               height: viewportHeight && window.innerWidth < 640
                 ? `${viewportHeight}px`
