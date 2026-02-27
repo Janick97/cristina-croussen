@@ -144,7 +144,7 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
+            transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="overflow-hidden bg-white shadow-lg md:hidden"
           >
             <div className="flex flex-col gap-4 px-6 py-6">
@@ -219,7 +219,7 @@ export default function Header() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2 }}
-                className="max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl"
+                className="max-h-[85vh] w-full max-w-md overflow-y-auto rounded-2xl bg-white p-5 shadow-2xl border-[3px] border-[#D9A397]"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2.5">
@@ -280,12 +280,7 @@ export default function Header() {
                   ))}
                 </div>
 
-                <button
-                  onClick={() => setHotlineOpen(false)}
-                  className="mt-4 w-full rounded-full bg-dark py-2.5 text-xs font-semibold text-white transition-colors hover:bg-dark/80"
-                >
-                  Schließen
-                </button>
+
               </motion.div>
             </div>
           </>
