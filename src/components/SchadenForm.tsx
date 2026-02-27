@@ -243,7 +243,7 @@ export default function SchadenForm() {
             {/* Schon Kunde? */}
             <div className="sm:col-span-2">
               <p className="mb-3 text-sm font-medium text-dark">
-                Schon Kunde bei Cristina? *
+                Schon Kunde? *
               </p>
               <div className="flex gap-3">
                 {[{ value: "ja", label: "Ja, ich bin Kunde" }, { value: "nein", label: "Nein, noch nicht" }].map(
