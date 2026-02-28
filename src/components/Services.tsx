@@ -1,11 +1,15 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import {
   Shield,
   TrendingUp,
   CreditCard,
   Home,
+  X,
+  Calendar,
+  MessageCircle,
 } from "lucide-react";
 
 const services = [
@@ -36,6 +40,20 @@ const services = [
 ];
 
 export default function Services() {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const handleWhatsApp = (title: string) => {
+    const text = encodeURIComponent(`Hallo Cristina, ich interessiere mich für dein Angebot im Bereich „${title}" und würde gerne einen Termin vereinbaren.`);
+    window.open(`https://wa.me/4916092282112?text=${text}`, "_blank");
+  };
+
+  const handleTermin = () => {
+    setSelected(null);
+    setTimeout(() => {
+      document.getElementById("termin")?.scrollIntoView({ behavior: "smooth" });
+    }, 200);
+  };
+
   return (
     <section id="leistungen" className="bg-white py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -57,38 +75,94 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
           {services.map((service, index) => (
-            <motion.div
+            <motion.button
               key={service.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
-              className="group relative overflow-hidden rounded-2xl border border-beige/30 bg-white p-6 transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 sm:p-8"
+              onClick={() => setSelected(service.title)}
+              className="group relative overflow-hidden rounded-2xl border border-beige/30 bg-white p-6 text-left transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 sm:p-8"
             >
-              {/* Hover gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 transition-all group-hover:from-primary/5 group-hover:to-transparent" />
-
               <div className="relative">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <service.icon
-                    size={28}
-                    className="text-primary"
-                    strokeWidth={1.5}
-                  />
+                  <service.icon size={28} className="text-primary" strokeWidth={1.5} />
                 </div>
                 <h3 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
                   {service.title}
                 </h3>
-                <p className="leading-relaxed text-dark/60">
-                  {service.description}
+                <p className="leading-relaxed text-dark/60">{service.description}</p>
+                <p className="mt-4 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Termin vereinbaren →
                 </p>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
         </div>
       </div>
+
+      {/* Modal */}
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center px-4"
+            onClick={() => setSelected(null)}
+          >
+            <div className="absolute inset-0 bg-dark/50 backdrop-blur-sm" />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              onClick={(e) => e.stopPropagation()}
+              className="relative w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl"
+            >
+              <button
+                onClick={() => setSelected(null)}
+                className="absolute right-4 top-4 rounded-full p-2 text-dark/40 transition-colors hover:bg-beige/30 hover:text-dark"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
+                {services.find(s => s.title === selected)?.icon && (() => {
+                  const Icon = services.find(s => s.title === selected)!.icon;
+                  return <Icon size={24} className="text-primary" strokeWidth={1.5} />;
+                })()}
+              </div>
+
+              <h3 className="mt-4 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+                {selected}
+              </h3>
+              <p className="mt-2 text-sm text-dark/60">
+                Lass uns gemeinsam schauen, was für dich im Bereich <strong>{selected}</strong> passt — unverbindlich und auf Augenhöhe.
+              </p>
+
+              <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+                <button
+                  onClick={handleTermin}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-full bg-primary py-3 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-lg hover:shadow-primary/20"
+                >
+                  <Calendar size={16} />
+                  Online-Termin buchen
+                </button>
+                <button
+                  onClick={() => handleWhatsApp(selected)}
+                  className="flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#25D366] py-3 text-sm font-semibold text-[#25D366] transition-all hover:bg-[#25D366] hover:text-white"
+                >
+                  <MessageCircle size={16} />
+                  Per WhatsApp melden
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
