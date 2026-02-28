@@ -17,7 +17,7 @@ const stations = [
     icon: GraduationCap,
     title: "Berufsstart",
     desc: "Ich fange an zu arbeiten",
-    detail: "Berufsunfähigkeit, erste Altersvorsorge, Haftpflicht",
+    detail: "Jetzt ist der beste Zeitpunkt: Berufsunfähigkeit, erste Altersvorsorge, Haftpflicht",
     color: "bg-[#f5e6e3]",
     iconColor: "#D9A397",
   },
