@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <section
       ref={ref}
-      className="relative flex min-h-screen items-start overflow-hidden bg-gradient-to-br from-white via-white to-beige-light/30 sm:items-center"
+      className="relative flex min-h-[70vh] items-start overflow-hidden bg-gradient-to-br from-white via-white to-beige-light/30 sm:items-center"
     >
       {/* Decorative elements */}
       <motion.div
