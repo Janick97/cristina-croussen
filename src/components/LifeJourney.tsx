@@ -86,7 +86,7 @@ export default function LifeJourney() {
   const lineRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="overflow-hidden bg-[#fdfaf9] py-16 sm:py-24">
+    <section className="overflow-hidden bg-[#fdfaf9] py-10 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
