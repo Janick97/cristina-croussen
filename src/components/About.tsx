@@ -177,9 +177,13 @@ export default function About() {
               Meine Mission
             </h4>
             <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
-              Träume klar definieren, finanzielle Ziele erreichen und
-              Erinnerungen schaffen – mit der richtigen Strategie und
-              Absicherung im Rücken. Dafür stehe ich jeden Tag auf.
+              Deine Träume gehören dir — ich helfe dir, sie zu verwirklichen.
+              Ob du bereits weißt wohin du willst oder noch nach Klarheit
+              suchst: Ich bin nicht der Fahrer, ich bin dein Copilot. Ich
+              zeige dir die blinden Flecken, die man alleine leicht übersieht,
+              und mache den Weg transparent — damit du selbstbewusst und mit
+              einem starken Fundament im Rücken entscheiden kannst. Das Tempo
+              bestimmst du.
             </p>
 
             <TypewriterQuote />
