@@ -17,7 +17,8 @@ const stations = [
     icon: GraduationCap,
     title: "Berufsstart",
     desc: "Ich fange an zu arbeiten",
-    detail: "Jetzt ist der beste Zeitpunkt: Berufsunfähigkeit, erste Altersvorsorge, Haftpflicht",
+    detail: "Jetzt ist der beste Zeitpunkt — Berufsunfähigkeit, erste Altersvorsorge, Haftpflicht …",
+    hook: "Was brauchst du wirklich für deinen Start?",
     color: "bg-[#f5e6e3]",
     iconColor: "#D9A397",
   },
@@ -25,7 +26,8 @@ const stations = [
     icon: Home,
     title: "Erstes Zuhause",
     desc: "Ich ziehe aus oder zusammen",
-    detail: "Hausrat, Haftpflicht, gemeinsame Absicherung",
+    detail: "Hausrat, Haftpflicht, gemeinsame Absicherung …",
+    hook: "Was verändert sich für dich — und was sollte jetzt abgesichert sein?",
     color: "bg-[#e8f0e8]",
     iconColor: "#5a9e6f",
   },
@@ -33,7 +35,8 @@ const stations = [
     icon: Building2,
     title: "Immobilie",
     desc: "Ich kaufe oder baue",
-    detail: "Baufinanzierung, Wohngebäude, Risikolebensversicherung",
+    detail: "Baufinanzierung, Wohngebäude, Risikolebensversicherung …",
+    hook: "Lass uns gemeinsam prüfen, was dein Eigentum wirklich absichert.",
     color: "bg-[#e8edf5]",
     iconColor: "#6b8fc9",
   },
@@ -41,7 +44,8 @@ const stations = [
     icon: Baby,
     title: "Familie",
     desc: "Ich bekomme Kinder",
-    detail: "Risikoschutz, Krankenversicherung, Kinderabsicherung",
+    detail: "Risikoschutz, Krankenversicherung, Kinderabsicherung …",
+    hook: "Was braucht deine Familie, wenn es darauf ankommt?",
     color: "bg-[#fdf0e0]",
     iconColor: "#e5a84b",
   },
@@ -49,7 +53,8 @@ const stations = [
     icon: Briefcase,
     title: "Selbstständigkeit",
     desc: "Ich mache mich selbstständig",
-    detail: "Krankenversicherung, Haftpflicht, Einkommensabsicherung",
+    detail: "Krankenversicherung, Haftpflicht, Einkommensabsicherung …",
+    hook: "Welche Strategie passt zu deinem Weg als Selbstständiger?",
     color: "bg-[#f0e8f5]",
     iconColor: "#9b6bc9",
   },
@@ -57,7 +62,8 @@ const stations = [
     icon: RefreshCw,
     title: "Neustart",
     desc: "Ich möchte Verträge prüfen",
-    detail: "Kostenloser Check — was zahle ich wirklich?",
+    detail: "Bestehende Verträge, Lücken aufdecken, Kosten optimieren …",
+    hook: "Wann hast du zuletzt geprüft, ob deine Verträge noch zu dir passen?",
     color: "bg-[#e5f5f0]",
     iconColor: "#3dada8",
   },
@@ -65,7 +71,8 @@ const stations = [
     icon: Sunset,
     title: "Altersvorsorge",
     desc: "Ich will früh für später vorsorgen",
-    detail: "Private Rente, Kapitalauszahlung, Vermögensplanung",
+    detail: "Private Rente, Kapitalaufbau, Vermögensplanung …",
+    hook: "Je früher du anfängst, desto mehr arbeitet dein Geld für dich.",
     color: "bg-[#fde8e3]",
     iconColor: "#d97c6e",
   },
@@ -138,6 +145,9 @@ export default function LifeJourney() {
                     <p className="mt-2 text-[10px] leading-tight text-dark/40 opacity-0 transition-opacity group-hover:opacity-100">
                       {s.detail}
                     </p>
+                    <p className="mt-1.5 text-[10px] leading-tight italic text-dark/50 opacity-0 transition-opacity group-hover:opacity-100">
+                      {s.hook}
+                    </p>
                     <p className="mt-2 text-[10px] font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
                       Termin buchen →
                     </p>
@@ -179,6 +189,7 @@ export default function LifeJourney() {
                     <p className="text-sm font-bold text-dark">{s.title}</p>
                     <p className="text-xs text-dark/60">{s.desc}</p>
                     <p className="mt-0.5 text-[11px] text-dark/40">{s.detail}</p>
+                    <p className="mt-1 text-[11px] italic text-primary/70">{s.hook}</p>
                   </div>
 
                   {/* Arrow */}
