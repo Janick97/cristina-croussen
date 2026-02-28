@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, ClipboardList, Rocket, Handshake } from "lucide-react";
+import { Search, ClipboardList, Rocket, Handshake, Presentation } from "lucide-react";
 
 const steps = [
   {
@@ -19,15 +19,22 @@ const steps = [
       "Basierend auf unserem Gespräch entwickle ich eine maßgeschneiderte Strategie.",
   },
   {
-    icon: Rocket,
+    icon: Presentation,
     step: "03",
+    title: "Beratung & Konzept",
+    description:
+      "Ich präsentiere dir dein persönliches Konzept. Du bekommst einen klaren Überblick und entscheidest in Ruhe, ob und wie es weitergehen soll.",
+  },
+  {
+    icon: Rocket,
+    step: "04",
     title: "Umsetzung",
     description:
       "Wir setzen gemeinsam die passende Lösung um.",
   },
   {
     icon: Handshake,
-    step: "04",
+    step: "05",
     title: "Dauerhafte Partnerschaft",
     description:
       "Ich begleite dich langfristig und stehe dir als Ansprechpartnerin zur Seite.",
