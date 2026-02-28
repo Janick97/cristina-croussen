@@ -10,6 +10,7 @@ import Terminbuchung from "@/components/Terminbuchung";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
 import FeedbackForm from "@/components/FeedbackForm";
+import LifeJourney from "@/components/LifeJourney";
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
       <Hero />
       <PartnerLogos />
       <About />
+      <LifeJourney />
       <Counter />
       <Services />
       <ProcessTimeline />
