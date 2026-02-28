@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import {
-  Compass,
   Shield,
   TrendingUp,
   CreditCard,
@@ -10,12 +9,6 @@ import {
 } from "lucide-react";
 
 const services = [
-  {
-    icon: Compass,
-    title: "Finanzcoaching",
-    description:
-      "Dein persönlicher Fahrplan für finanzielle Klarheit — wir schauen gemeinsam wo du stehst, wo du hinwillst und wie der Weg dorthin aussieht. Du entscheidest, ich begleite.",
-  },
   {
     icon: Shield,
     title: "Vermögensabsicherung",
@@ -53,12 +46,15 @@ export default function Services() {
           className="text-center"
         >
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
-            Was ich für Sie tun kann
+            Was ich für dich tun kann
           </span>
           <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
-            Meine Leistungen
+            Finanzcoaching
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
+          <p className="mx-auto mt-4 max-w-xl text-base text-dark/60">
+            Dein persönlicher Fahrplan für finanzielle Klarheit — von der Absicherung bis zum Aufbau. Alles aus einer Hand, abgestimmt auf deine Situation.
+          </p>
         </motion.div>
 
         <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
