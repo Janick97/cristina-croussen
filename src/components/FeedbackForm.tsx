@@ -76,10 +76,10 @@ export default function FeedbackForm() {
             <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
               Vielen Dank!
             </h3>
-            <div className="mt-3 flex items-center justify-center gap-2 text-dark/60">
-              <Heart size={20} fill="#D9A397" color="#D9A397" />
-              <span>Dein Feedback hilft mir, die Seite noch besser zu machen.</span>
-            </div>
+            <p className="mt-3 inline-flex items-center gap-1 text-dark/60">
+              Dein Feedback hilft mir, die Seite noch besser zu machen.{" "}
+              <Heart size={16} fill="#D9A397" color="#D9A397" />
+            </p>
           </motion.div>
         </div>
       </section>

@@ -12,6 +12,12 @@ export default function ExitIntentPopup() {
     if (alreadyShown) return;
 
     const show = () => {
+      // Nicht zeigen wenn der User gerade das Feedback-Formular nutzt
+      const feedbackSection = document.getElementById("feedback");
+      if (feedbackSection) {
+        const rect = feedbackSection.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) return;
+      }
       setVisible(true);
       sessionStorage.setItem("exit-intent-shown", "true");
       cleanup();
