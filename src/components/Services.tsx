@@ -43,7 +43,9 @@ export default function Services() {
   const [selected, setSelected] = useState<string | null>(null);
 
   const handleWhatsApp = (title: string) => {
-    const text = encodeURIComponent(`Hallo Cristina, ich interessiere mich für dein Angebot im Bereich „${title}" und würde gerne einen Termin vereinbaren.`);
+    const text = encodeURIComponent(
+      `Hallo Cristina, ich interessiere mich für dein Angebot im Bereich „${title}" und würde gerne einen Termin vereinbaren.`
+    );
     window.open(`https://wa.me/4916092282112?text=${text}`, "_blank");
   };
 
@@ -75,7 +77,8 @@ export default function Services() {
           </p>
         </motion.div>
 
-        <div className="mt-10 grid gap-4 sm:mt-16 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4">
+        {/* Kacheln — kompakt, hover expandiert */}
+        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-16 sm:gap-6 lg:grid-cols-4">
           {services.map((service, index) => (
             <motion.button
               key={service.title}
@@ -84,20 +87,36 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.08 }}
               onClick={() => setSelected(service.title)}
-              className="group relative overflow-hidden rounded-2xl border border-beige/30 bg-white p-6 text-left transition-all hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 sm:p-8"
+              className="group relative overflow-hidden rounded-2xl border border-beige/40 bg-white text-left shadow-sm transition-all duration-300 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 transition-all group-hover:from-primary/5 group-hover:to-transparent" />
-              <div className="relative">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-colors group-hover:bg-primary/20">
-                  <service.icon size={28} className="text-primary" strokeWidth={1.5} />
+              {/* Gradient-Overlay beim Hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 transition-all duration-300 group-hover:from-primary/5 group-hover:to-transparent" />
+
+              <div className="relative p-5 sm:p-6">
+                {/* Icon */}
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/20">
+                  <service.icon size={24} className="text-primary" strokeWidth={1.5} />
                 </div>
-                <h3 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+
+                {/* Titel */}
+                <h3 className="font-[family-name:var(--font-londrina)] text-xl leading-tight text-dark sm:text-2xl">
                   {service.title}
                 </h3>
-                <p className="leading-relaxed text-dark/60">{service.description}</p>
-                <p className="mt-4 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
-                  Termin vereinbaren →
-                </p>
+
+                {/* Beschreibung — nur beim Hover sichtbar, expandiert die Karte */}
+                <div className="grid transition-all duration-300 ease-out [grid-template-rows:0fr] group-hover:[grid-template-rows:1fr]">
+                  <div className="overflow-hidden">
+                    <p className="mt-3 text-sm leading-relaxed text-dark/60">
+                      {service.description}
+                    </p>
+                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
+                      Mehr erfahren
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                      </svg>
+                    </span>
+                  </div>
+                </div>
               </div>
             </motion.button>
           ))}
@@ -130,8 +149,8 @@ export default function Services() {
               </button>
 
               <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10">
-                {services.find(s => s.title === selected)?.icon && (() => {
-                  const Icon = services.find(s => s.title === selected)!.icon;
+                {(() => {
+                  const Icon = services.find((s) => s.title === selected)!.icon;
                   return <Icon size={24} className="text-primary" strokeWidth={1.5} />;
                 })()}
               </div>
@@ -140,7 +159,8 @@ export default function Services() {
                 {selected}
               </h3>
               <p className="mt-2 text-sm text-dark/60">
-                Lass uns gemeinsam schauen, was für dich im Bereich <strong>{selected}</strong> passt — unverbindlich und auf Augenhöhe.
+                Lass uns gemeinsam schauen, was für dich im Bereich{" "}
+                <strong>{selected}</strong> passt — unverbindlich und auf Augenhöhe.
               </p>
 
               <div className="mt-6 flex flex-col gap-3 sm:flex-row">
@@ -156,7 +176,7 @@ export default function Services() {
                   className="flex flex-1 items-center justify-center gap-2 rounded-full border-2 border-[#25D366] py-3 text-sm font-semibold text-[#25D366] transition-all hover:bg-[#25D366] hover:text-white"
                 >
                   <MessageCircle size={16} />
-                  Per WhatsApp melden
+                  Per WhatsApp
                 </button>
               </div>
             </motion.div>
