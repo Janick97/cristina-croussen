@@ -2,50 +2,43 @@
 
 import { motion } from "framer-motion";
 import {
+  Compass,
   Shield,
   TrendingUp,
-  Umbrella,
-  PiggyBank,
-  HeartPulse,
-  Scale,
+  CreditCard,
+  Home,
 } from "lucide-react";
 
 const services = [
   {
-    icon: Shield,
-    title: "Altersvorsorge",
+    icon: Compass,
+    title: "Finanzcoaching",
     description:
-      "Maßgeschneiderte Vorsorgekonzepte für einen sorgenfreien Ruhestand – privat und betrieblich.",
+      "Dein persönlicher Fahrplan für finanzielle Klarheit — wir schauen gemeinsam wo du stehst, wo du hinwillst und wie der Weg dorthin aussieht. Du entscheidest, ich begleite.",
+  },
+  {
+    icon: Shield,
+    title: "Vermögensabsicherung",
+    description:
+      "Das Fundament für alles andere. Bevor wir aufbauen, sichern wir ab — Einkommensschutz, Haftung, Absicherung für Beruf und Familie …",
   },
   {
     icon: TrendingUp,
     title: "Vermögensaufbau",
     description:
-      "Intelligente Anlagestrategien für nachhaltiges Wachstum und langfristige Vermögensbildung.",
+      "Altersvorsorge, Sparpläne, Anlagestrategien — langfristig, nachhaltig und auf deine Situation abgestimmt …",
   },
   {
-    icon: Umbrella,
-    title: "Versicherungen",
+    icon: CreditCard,
+    title: "Banking",
     description:
-      "Optimaler Schutz für alle Lebenslagen – von Haftpflicht bis Wohngebäude.",
+      "Girokonto, Kreditkarte, smarte Kontoführung — die richtigen Produkte zur richtigen Zeit, ohne unnötige Kosten …",
   },
   {
-    icon: PiggyBank,
-    title: "Sparpläne",
+    icon: Home,
+    title: "Finanzierungen",
     description:
-      "Regelmäßig Vermögen aufbauen mit individuell abgestimmten Sparplänen und Fondslösungen.",
-  },
-  {
-    icon: HeartPulse,
-    title: "Berufsunfähigkeit",
-    description:
-      "Sichern Sie Ihr Einkommen ab – für den Fall, dass Sie Ihren Beruf nicht mehr ausüben können.",
-  },
-  {
-    icon: Scale,
-    title: "Schadensprüfung",
-    description:
-      "Professionelle Prüfung und Durchsetzung Ihrer Versicherungsansprüche im Schadensfall.",
+      "Immobilien, Kredite, Umschuldungen — wir finden die Struktur die wirklich zu dir passt und dich nicht ausbremst …",
   },
 ];
 
