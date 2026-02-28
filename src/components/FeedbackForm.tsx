@@ -77,8 +77,7 @@ export default function FeedbackForm() {
               Vielen Dank!
             </h3>
             <p className="mt-3 inline-flex items-center gap-1 text-dark/60">
-              Dein Feedback hilft mir, die Seite noch besser zu machen.{" "}
-              <Heart size={16} fill="#D9A397" color="#D9A397" />
+              Dein Feedback hilft mir, die Seite noch besser zu machen.<Heart size={16} fill="#D9A397" color="#D9A397" className="inline ml-0.5 -mt-0.5" />
             </p>
           </motion.div>
         </div>
