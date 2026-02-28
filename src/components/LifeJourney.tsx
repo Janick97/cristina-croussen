@@ -63,8 +63,8 @@ const stations = [
   },
   {
     icon: Sunset,
-    title: "Ruhestand",
-    desc: "Ich plane meinen Ruhestand",
+    title: "Altersvorsorge",
+    desc: "Ich will früh für später vorsorgen",
     detail: "Private Rente, Kapitalauszahlung, Vermögensplanung",
     color: "bg-[#fde8e3]",
     iconColor: "#d97c6e",
