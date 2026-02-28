@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import PartnerLogos from "@/components/PartnerLogos";
+
 import About from "@/components/About";
 import Counter from "@/components/Counter";
 import Services from "@/components/Services";
@@ -17,7 +17,7 @@ export default function Home() {
     <>
       <Hero />
       <LifeJourney />
-      <PartnerLogos />
+
       <About />
       <Counter />
       <Services />
