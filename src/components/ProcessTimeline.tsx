@@ -23,7 +23,7 @@ const steps = [
     step: "03",
     title: "Beratung & Konzept",
     description:
-      "Ich präsentiere dir dein persönliches Konzept. Du bekommst einen klaren Überblick und entscheidest direkt im Termin – oder spätestens innerhalb von 2 Tagen bequem per Online-Unterschrift.",
+      "Ich präsentiere dir dein persönliches Konzept. Du bekommst einen klaren Überblick und entscheidest, ob und wie es weitergeht.",
   },
   {
     icon: Rocket,
