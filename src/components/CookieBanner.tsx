@@ -61,7 +61,7 @@ export default function CookieBanner() {
             <div className="flex items-start gap-3 sm:gap-4">
               <Cookie size={20} className="mt-0.5 shrink-0 text-primary sm:mt-1 sm:size-6" />
               <div className="flex-1 min-w-0">
-                <h3 className="font-[family-name:var(--font-londrina)] text-lg text-dark sm:text-xl">
+                <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-lg text-dark sm:text-xl">
                   Cookie-Einstellungen
                 </h3>
                 <p className="mt-1.5 text-xs leading-relaxed text-dark/60 sm:mt-2 sm:text-sm">

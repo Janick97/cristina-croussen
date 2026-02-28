@@ -26,7 +26,7 @@ export default function PageLoader() {
             className="text-center"
           >
             <div className="flex items-center gap-2">
-              <span className="font-[family-name:var(--font-londrina)] text-3xl font-bold text-dark">
+              <span className="font-[family-name:var(--font-londrina)] font-semibold text-3xl font-bold text-dark">
                 Cristina
               </span>
               <span className="font-[family-name:var(--font-caveat)] text-2xl text-primary">

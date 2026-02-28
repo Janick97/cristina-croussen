@@ -34,7 +34,7 @@ export default function Testimonials() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary-light">
             Erfahrungen
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-white sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-white sm:text-5xl">
             Das sagen meine Kunden
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />

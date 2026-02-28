@@ -140,7 +140,7 @@ export default function SchadenForm() {
             className="rounded-3xl bg-white p-8 shadow-lg sm:p-12"
           >
             <CheckCircle size={64} className="mx-auto mb-6 text-green-500" />
-            <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
+            <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-3xl text-dark">
               Vielen Dank!
             </h3>
             <p className="mt-4 text-lg text-dark/70">
@@ -171,7 +171,7 @@ export default function SchadenForm() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Schnell & unkompliziert
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Schadensprüfung
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />

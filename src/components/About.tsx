@@ -89,7 +89,7 @@ export default function About() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Die Person hinter der Beratung
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Über mich
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -125,7 +125,7 @@ export default function About() {
             viewport={{ once: true }}
             className="lg:col-span-3"
           >
-            <h3 className="font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
+            <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark sm:text-3xl">
               Cristina Croußen
             </h3>
             <p className="mt-1 text-sm font-medium tracking-wide text-primary">

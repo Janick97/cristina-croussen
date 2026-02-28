@@ -81,7 +81,7 @@ export default function Header() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-[family-name:var(--font-londrina)] text-2xl font-bold text-dark">
+            <span className="font-[family-name:var(--font-londrina)] font-semibold text-2xl font-bold text-dark">
               Cristina
             </span>
             <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
@@ -233,7 +233,7 @@ export default function Header() {
                   <div className="flex shrink-0 items-center justify-between border-b border-gray-100 px-5 py-4">
                     <div className="flex items-center gap-2.5">
                       <span className="text-xl">🚨</span>
-                      <h2 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+                      <h2 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                         Notfallhotlines
                       </h2>
                     </div>

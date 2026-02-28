@@ -68,7 +68,7 @@ export default function Services() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Was ich für dich tun kann
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Finanzcoaching
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -99,7 +99,7 @@ export default function Services() {
                 </div>
 
                 {/* Titel */}
-                <h3 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+                <h3 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
                   {service.title}
                 </h3>
 
@@ -146,7 +146,7 @@ export default function Services() {
                 })()}
               </div>
 
-              <h3 className="mt-4 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+              <h3 className="mt-4 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
                 {selected}
               </h3>
               <p className="mt-2 text-sm text-dark/60">

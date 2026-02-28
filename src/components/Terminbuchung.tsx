@@ -16,7 +16,7 @@ export default function Terminbuchung() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Kostenlos & unverbindlich
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Kennenlerntermin buchen
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -36,7 +36,7 @@ export default function Terminbuchung() {
           >
             <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Clock size={28} className="mb-3 text-primary" />
-              <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+              <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                 15 Minuten
               </h3>
               <p className="mt-2 text-sm text-dark/60">
@@ -46,7 +46,7 @@ export default function Terminbuchung() {
             </div>
             <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Video size={28} className="mb-3 text-primary" />
-              <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+              <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                 Online oder vor Ort
               </h3>
               <p className="mt-2 text-sm text-dark/60">
@@ -55,7 +55,7 @@ export default function Terminbuchung() {
             </div>
             <div className="rounded-2xl border border-beige/30 p-5 sm:p-6">
               <Coffee size={28} className="mb-3 text-primary" />
-              <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+              <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                 Unverbindlich
               </h3>
               <p className="mt-2 text-sm text-dark/60">

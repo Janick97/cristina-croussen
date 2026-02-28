@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -47,18 +47,18 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mb-4 inline-block font-[family-name:var(--font-caveat)] text-lg text-primary sm:text-xl"
             >
-              Finanzcoach & VermÃ¶gensberater Assistentin
+              Finanzcoach & Vermögensberater Assistentin
             </motion.span>
 
-            <h1 className="mb-6 font-[family-name:var(--font-londrina)] text-4xl leading-tight text-dark sm:text-5xl lg:text-7xl">
+            <h1 className="mb-6 font-[family-name:var(--font-londrina)] font-semibold text-4xl leading-tight text-dark sm:text-5xl lg:text-7xl">
               Finanzielle Sicherheit beginnt mit{" "}
               <span className="text-primary">Klarheit.</span>
             </h1>
 
             <p className="mb-8 text-base leading-relaxed text-dark/70 sm:mb-10 sm:text-lg">
-              UnabhÃ¤ngige Analyse Ihrer Situation â€“ persÃ¶nlich & transparent.
-              Gemeinsam schaffen wir die Grundlage fÃ¼r Ihren langfristigen
-              VermÃ¶gensaufbau.
+              Unabhängige Analyse Ihrer Situation – persönlich & transparent.
+              Gemeinsam schaffen wir die Grundlage für Ihren langfristigen
+              Vermögensaufbau.
             </p>
 
             <div className="flex flex-col gap-3 sm:flex-row sm:justify-center sm:gap-4 lg:justify-start">
@@ -69,7 +69,7 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-white transition-all hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/20 sm:px-8 sm:py-4 sm:text-base"
               >
                 <Shield size={18} />
-                Schadensfall prÃ¼fen lassen
+                Schadensfall prüfen lassen
               </motion.a>
               <motion.a
                 href="https://www.cal.eu/cristinacroussen/15min"
@@ -80,13 +80,13 @@ export default function Hero() {
                 className="group inline-flex items-center justify-center gap-2 rounded-full border-2 border-dark/10 bg-white px-6 py-3.5 text-sm font-semibold text-dark transition-all hover:border-primary hover:text-primary hover:shadow-lg sm:px-8 sm:py-4 sm:text-base"
               >
                 <Calendar size={18} />
-                Kostenloses KennenlerngesprÃ¤ch buchen
+                Kostenloses Kennenlerngespräch buchen
               </motion.a>
             </div>
 
             {/* Trust Badges */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:mt-12 sm:gap-8 lg:justify-start">
-              {["Zertifizierter Partner", "PersÃ¶nliche Beratung", "Kostenlose Erstanalyse"].map(
+              {["Zertifizierter Partner", "Persönliche Beratung", "Kostenlose Erstanalyse"].map(
                 (badge, i) => (
                   <motion.div
                     key={badge}
@@ -116,7 +116,7 @@ export default function Hero() {
             <div className="relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-3xl shadow-2xl">
               <Image
                 src="/images/profil.jpeg"
-                alt="Cristina CrouÃŸen â€“ Finanzcoach & VermÃ¶gensberater Assistentin"
+                alt="Cristina Croußen – Finanzcoach & Vermögensberater Assistentin"
                 fill
                 className="object-cover object-top"
                 priority
@@ -129,7 +129,7 @@ export default function Hero() {
                   &ldquo;Ihre finanzielle Zukunft verdient Aufmerksamkeit.&rdquo;
                 </p>
                 <p className="mt-1 text-sm font-medium text-primary">
-                  â€” Cristina CrouÃŸen
+                  — Cristina Croußen
                 </p>
               </div>
             </div>

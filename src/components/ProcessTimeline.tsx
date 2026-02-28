@@ -47,7 +47,7 @@ export default function ProcessTimeline() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Schritt für Schritt
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             So arbeiten wir zusammen
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -81,7 +81,7 @@ export default function ProcessTimeline() {
                   <span className="font-[family-name:var(--font-caveat)] text-sm text-primary/60">
                     Schritt {step.step}
                   </span>
-                  <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+                  <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                     {step.title}
                   </h3>
                   <p className="mt-1 text-sm leading-relaxed text-dark/60">
@@ -112,7 +112,7 @@ export default function ProcessTimeline() {
                 <span className="font-[family-name:var(--font-caveat)] text-base text-primary/60">
                   Schritt {step.step}
                 </span>
-                <h3 className="mt-1 font-[family-name:var(--font-londrina)] text-xl text-dark">
+                <h3 className="mt-1 font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                   {step.title}
                 </h3>
                 <p className="mt-2 text-sm leading-relaxed text-dark/60">
@@ -142,7 +142,7 @@ export default function ProcessTimeline() {
                 <span className="font-[family-name:var(--font-caveat)] text-lg text-primary/60">
                   Schritt {step.step}
                 </span>
-                <h3 className="mt-1 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+                <h3 className="mt-1 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
                   {step.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-dark/60">

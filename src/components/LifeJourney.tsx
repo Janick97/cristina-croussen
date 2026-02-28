@@ -108,7 +108,7 @@ export default function LifeJourney() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Für jeden Lebensabschnitt
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Wo stehst du gerade?
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -265,7 +265,7 @@ export default function LifeJourney() {
               <selected.icon size={24} color={selected.iconColor} strokeWidth={1.5} />
             </div>
 
-            <h3 className="font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               {selected.title}
             </h3>
             <p className="mt-1 text-sm text-dark/60">{selected.desc}</p>

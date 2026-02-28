@@ -73,7 +73,7 @@ export default function FeedbackForm() {
             className="rounded-3xl bg-primary/5 p-10"
           >
             <CheckCircle size={56} className="mx-auto mb-4 text-primary" />
-            <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
+            <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-3xl text-dark">
               Vielen Dank!
             </h3>
             <p className="mt-3 inline-flex items-center gap-1 text-dark/60">
@@ -97,7 +97,7 @@ export default function FeedbackForm() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Deine Meinung zählt
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Feedback zur Website
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />

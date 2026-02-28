@@ -61,7 +61,7 @@ export default function Counter() {
               className="text-center"
             >
               <stat.icon size={24} className="mx-auto mb-2 text-white/80 sm:mb-3 sm:size-7" />
-              <div className="font-[family-name:var(--font-londrina)] text-3xl text-white sm:text-4xl md:text-5xl">
+              <div className="font-[family-name:var(--font-londrina)] font-semibold text-3xl text-white sm:text-4xl md:text-5xl">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} />
               </div>
               <p className="mt-1 text-xs text-white/70 sm:mt-2 sm:text-sm">{stat.label}</p>

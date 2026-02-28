@@ -99,7 +99,7 @@ export default function ExitIntentPopup() {
               <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
                 Noch unsicher?
               </span>
-              <h3 className="mt-2 font-[family-name:var(--font-londrina)] text-2xl text-dark sm:text-3xl">
+              <h3 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark sm:text-3xl">
                 Lassen Sie uns sprechen
               </h3>
               <p className="mt-3 text-sm text-dark/60 sm:mt-4 sm:text-base">

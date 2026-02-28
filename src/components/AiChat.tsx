@@ -185,7 +185,7 @@ export default function AiChat() {
                     <div className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10">
                       <Sparkles size={28} className="text-primary" />
                     </div>
-                    <h3 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
+                    <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-xl text-dark">
                       Hallo!
                     </h3>
                     <p className="mt-2 text-sm text-dark/50">

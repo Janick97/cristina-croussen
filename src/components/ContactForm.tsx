@@ -62,7 +62,7 @@ export default function ContactForm() {
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
             Schreiben Sie mir
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             Kontakt
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
@@ -76,7 +76,7 @@ export default function ContactForm() {
             viewport={{ once: true }}
             className="lg:col-span-2"
           >
-            <h3 className="font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               So erreichen Sie mich
             </h3>
             <p className="mt-4 text-dark/60">
@@ -144,7 +144,7 @@ export default function ContactForm() {
             {status === "success" ? (
               <div className="flex flex-col items-center py-12 text-center">
                 <CheckCircle size={48} className="mb-4 text-green-500" />
-                <h3 className="font-[family-name:var(--font-londrina)] text-2xl text-dark">
+                <h3 className="font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
                   Nachricht gesendet!
                 </h3>
                 <p className="mt-2 text-dark/60">

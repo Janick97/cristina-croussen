@@ -27,7 +27,7 @@ export default function PartnerLogos() {
               transition={{ delay: index * 0.08 }}
               className="flex h-10 items-center sm:h-12"
             >
-              <span className="font-[family-name:var(--font-londrina)] text-sm text-dark/25 transition-colors hover:text-dark/50 sm:text-lg md:text-xl">
+              <span className="font-[family-name:var(--font-londrina)] font-semibold text-sm text-dark/25 transition-colors hover:text-dark/50 sm:text-lg md:text-xl">
                 {partner}
               </span>
             </motion.div>

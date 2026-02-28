@@ -1,4 +1,4 @@
-ï»¿"use client";
+"use client";
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -8,37 +8,37 @@ const faqs = [
   {
     question: "Was kostet eine Erstberatung?",
     answer:
-      "Die Erstberatung und Analyse Ihrer finanziellen Situation ist fÃ¼r Sie kostenlos und unverbindlich. Ich nehme mir Zeit, Ihre individuelle Lage zu verstehen, bevor wir gemeinsam Ã¼ber mÃ¶gliche Strategien sprechen.",
+      "Die Erstberatung und Analyse Ihrer finanziellen Situation ist für Sie kostenlos und unverbindlich. Ich nehme mir Zeit, Ihre individuelle Lage zu verstehen, bevor wir gemeinsam über mögliche Strategien sprechen.",
   },
   {
-    question: "Wie lÃ¤uft die SchadensprÃ¼fung ab?",
+    question: "Wie läuft die Schadensprüfung ab?",
     answer:
-      "Als aktive Kundin oder aktiver Kunde bei mir reichen Sie einfach Ihren Schadensfall Ã¼ber das Formular oder telefonisch ein â€“ ich kÃ¼mmere mich um alles Weitere, kontaktiere die zustÃ¤ndige Versicherung und begleite Sie bis zur Auszahlung. Auch als Fremdkunde kÃ¶nnen Sie meine SchadensprÃ¼fung nutzen: Laden Sie Ihren Versicherungsschein hoch, und ich prÃ¼fe Ihre AnsprÃ¼che kostenlos und unverbindlich.",
+      "Als aktive Kundin oder aktiver Kunde bei mir reichen Sie einfach Ihren Schadensfall über das Formular oder telefonisch ein – ich kümmere mich um alles Weitere, kontaktiere die zuständige Versicherung und begleite Sie bis zur Auszahlung. Auch als Fremdkunde können Sie meine Schadensprüfung nutzen: Laden Sie Ihren Versicherungsschein hoch, und ich prüfe Ihre Ansprüche kostenlos und unverbindlich.",
   },
   {
-    question: "FÃ¼r welche Versicherungen sind Sie zustÃ¤ndig?",
+    question: "Für welche Versicherungen sind Sie zuständig?",
     answer:
-      "Als VermÃ¶gensberater Assistentin decke ich ein breites Spektrum ab: Haftpflicht, Hausrat, WohngebÃ¤ude, KFZ, BerufsunfÃ¤higkeit, Rechtsschutz, Unfall, Altersvorsorge und viele weitere. Sprechen Sie mich einfach an.",
+      "Als Vermögensberater Assistentin decke ich ein breites Spektrum ab: Haftpflicht, Hausrat, Wohngebäude, KFZ, Berufsunfähigkeit, Rechtsschutz, Unfall, Altersvorsorge und viele weitere. Sprechen Sie mich einfach an.",
   },
   {
     question: "Kann ich auch Online-Beratung erhalten?",
     answer:
-      "SelbstverstÃ¤ndlich! Ich biete persÃ¶nliche Beratung vor Ort in Heinsberg sowie Video-Calls an. Buchen Sie einfach einen Termin Ã¼ber mein Online-Buchungssystem.",
+      "Selbstverständlich! Ich biete persönliche Beratung vor Ort in Heinsberg sowie Video-Calls an. Buchen Sie einfach einen Termin über mein Online-Buchungssystem.",
   },
   {
     question: "Was zeichnet meine Beratung aus?",
     answer:
-      "Mein Ansatz ist ganzheitlich und persÃ¶nlich â€“ statt einzelner ProduktlÃ¶sungen steht ein individuelles Gesamtkonzept im Mittelpunkt, abgestimmt auf Ihre persÃ¶nliche Lebenssituation. Sie haben eine Ansprechpartnerin fÃ¼r alles.",
+      "Mein Ansatz ist ganzheitlich und persönlich – statt einzelner Produktlösungen steht ein individuelles Gesamtkonzept im Mittelpunkt, abgestimmt auf Ihre persönliche Lebenssituation. Sie haben eine Ansprechpartnerin für alles.",
   },
   {
     question: "Wie kann ich einen Termin vereinbaren?",
     answer:
-      "Am einfachsten Ã¼ber mein Online-Buchungssystem auf dieser Website, per WhatsApp an 0160 92282112 oder Ã¼ber das Kontaktformular. Ich melde mich zeitnah bei Ihnen.",
+      "Am einfachsten über mein Online-Buchungssystem auf dieser Website, per WhatsApp an 0160 92282112 oder über das Kontaktformular. Ich melde mich zeitnah bei Ihnen.",
   },
   {
-    question: "Wie behalte ich den Ãœberblick Ã¼ber alle meine VertrÃ¤ge und Versicherungen?",
+    question: "Wie behalte ich den Überblick über alle meine Verträge und Versicherungen?",
     answer:
-      "Mit der kostenlosen App \"MeineApp\" der DVAG haben Sie Ihre VertrÃ¤ge, Versicherungen, Altersvorsorge und VermÃ¶genswerte jederzeit auf dem Smartphone im Blick. Sie kÃ¶nnen Ihre Daten auch mit der Familie teilen und sicher Dokumente austauschen. Die App ist kostenlos im Apple App Store und Google Play Store verfÃ¼gbar â€“ einfach nach \"MeineApp DVAG\" suchen oder direkt hier Ã¶ffnen: www.meineapp.dvag",
+      "Mit der kostenlosen App \"MeineApp\" der DVAG haben Sie Ihre Verträge, Versicherungen, Altersvorsorge und Vermögenswerte jederzeit auf dem Smartphone im Blick. Sie können Ihre Daten auch mit der Familie teilen und sicher Dokumente austauschen. Die App ist kostenlos im Apple App Store und Google Play Store verfügbar – einfach nach \"MeineApp DVAG\" suchen oder direkt hier öffnen: www.meineapp.dvag",
   },
 ];
 
@@ -55,9 +55,9 @@ export default function FAQ() {
           className="text-center"
         >
           <span className="font-[family-name:var(--font-caveat)] text-xl text-primary">
-            HÃ¤ufige Fragen
+            Häufige Fragen
           </span>
-          <h2 className="mt-2 font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+          <h2 className="mt-2 font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
             FAQ
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
