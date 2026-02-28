@@ -113,7 +113,7 @@ export default function LifeJourney() {
           </h2>
           <div className="mx-auto mt-2 h-1 w-16 rounded-full bg-primary" />
           <p className="mx-auto mt-4 max-w-xl text-base text-dark/60">
-            Klick auf deinen Lebensabschnitt — ich zeige dir, was jetzt wirklich wichtig ist.
+            Wir schauen gemeinsam, was wirklich wichtig für dich ist.
           </p>
         </motion.div>
 
