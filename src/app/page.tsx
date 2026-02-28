@@ -16,9 +16,9 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <LifeJourney />
       <PartnerLogos />
       <About />
-      <LifeJourney />
       <Counter />
       <Services />
       <ProcessTimeline />
