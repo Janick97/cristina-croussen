@@ -151,10 +151,7 @@ export default function About() {
               Finanzcoach & Vermögensberater Assistentin
             </p>
 
-            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
-              Mein Weg
-            </h4>
-            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-dark/70 sm:text-lg">
               Mit kaufmännischer Ausbildung und kontinuierlicher Weiterbildung
               im Finanzbereich helfe ich dir, ein solides Fundament für deine
               Zukunft zu bauen. Schon als Kind faszinierte mich die Welt der
@@ -163,20 +160,14 @@ export default function About() {
               geworden. Und meine Leidenschaft.
             </p>
 
-            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
-              Meine Beratungsphilosophie
-            </h4>
-            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-dark/70 sm:text-lg">
               Gute Beratung beginnt dort, wo man den Menschen hinter den
-              Zahlen versteht. Deshalb nehme ich mir Zeit, Ihre individuelle
+              Zahlen versteht. Deshalb nehme ich mir Zeit, deine individuelle
               Situation wirklich kennenzulernen – bevor wir gemeinsam die
               passende Strategie entwickeln.
             </p>
 
-            <h4 className="mt-6 font-[family-name:var(--font-londrina)] text-xl text-dark sm:text-2xl">
-              Meine Mission
-            </h4>
-            <p className="mt-2 text-base leading-relaxed text-dark/70 sm:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-dark/70 sm:text-lg">
               Deine Träume gehören dir — ich helfe dir, sie zu verwirklichen.
               Ob du bereits weißt wohin du willst oder noch nach Klarheit
               suchst: Ich bin nicht der Fahrer, ich bin dein Copilot. Ich
