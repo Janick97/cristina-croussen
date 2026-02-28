@@ -115,19 +115,7 @@ export default function About() {
                 sizes="(max-width: 768px) 320px, 384px"
               />
             </div>
-            {/* Floating badge */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.4 }}
-              className="absolute -right-4 bottom-12 hidden rounded-2xl bg-white p-4 shadow-xl lg:block"
-            >
-              <p className="font-[family-name:var(--font-londrina)] text-3xl text-primary">
-                6+
-              </p>
-              <p className="text-xs text-dark/50">Jahre Erfahrung</p>
-            </motion.div>
+
           </motion.div>
 
           {/* Text */}
