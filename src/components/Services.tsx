@@ -78,7 +78,7 @@ export default function Services() {
         </motion.div>
 
         {/* Kacheln — kompakt, hover expandiert */}
-        <div className="mt-10 grid grid-cols-2 gap-4 sm:mt-16 sm:gap-6 lg:grid-cols-4">
+        <div className="mt-10 flex flex-col gap-4 sm:mt-16 sm:gap-6">
           {services.map((service, index) => (
             <motion.button
               key={service.title}
