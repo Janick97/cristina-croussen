@@ -3,14 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import {
-  GraduationCap,
-  Bike,
-  Camera,
-  Sparkles,
-  Target,
-  PawPrint,
-} from "lucide-react";
+
 
 const quoteLines = [
   "Ich dachte immer, ich sei Team Risiko –",
@@ -181,140 +174,7 @@ export default function About() {
           </motion.div>
         </div>
 
-        {/* Personal Facts - Bento Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-14 sm:mt-20"
-        >
-          <p className="mb-6 text-center text-sm font-medium uppercase tracking-widest text-dark/30 sm:mb-8">
-            Ein paar Dinge über mich
-          </p>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Card 1 - Large */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 p-5 sm:col-span-2 sm:p-7"
-            >
-              <GraduationCap
-                size={80}
-                className="absolute -right-2 -bottom-2 text-primary/10"
-                strokeWidth={1}
-              />
-              <div className="relative">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/20">
-                  <GraduationCap size={20} className="text-primary" />
-                </div>
-                <h4 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
-                  Fundament & Wachstum
-                </h4>
-                <p className="mt-2 leading-relaxed text-dark/60">
-                  Kaufmännische Ausbildung als solide Basis, kombiniert mit
-                  stetiger Weiterbildung im Finanzbereich. Stillstand? Nicht
-                  mein Ding.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 2 */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="rounded-2xl bg-dark p-5 text-white sm:p-7"
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                <Target size={20} className="text-primary-light" />
-              </div>
-              <h4 className="font-[family-name:var(--font-londrina)] text-xl">
-                Positives Mindset
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed text-white/60">
-                Ich beschäftige mich intensiv mit Psychologie und
-                persönlichem Wachstum. Positive Energie ist kein Trend –
-                sondern Haltung.
-              </p>
-            </motion.div>
-
-            {/* Card 3 */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="rounded-2xl border border-beige/30 bg-white p-5 sm:p-7"
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-                <Camera size={20} className="text-primary" />
-              </div>
-              <h4 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
-                Erinnerungen
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed text-dark/60">
-                Ich liebe es, besondere Momente festzuhalten. Weil die
-                schönsten Dinge im Leben die sind, die man nicht kaufen kann.
-              </p>
-            </motion.div>
-
-            {/* Card 4 */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="rounded-2xl border border-beige/30 bg-white p-5 sm:p-7"
-            >
-              <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10">
-                <PawPrint size={20} className="text-primary" />
-              </div>
-              <h4 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
-                Fellnase first
-              </h4>
-              <p className="mt-2 text-sm leading-relaxed text-dark/60">
-                Meine Leidenschaft fürs Motorrad ruht gerade – zugunsten
-                unserer Fellnase. Aber das Liebäugeln geht natürlich weiter.
-              </p>
-            </motion.div>
-
-            {/* Card 5 - Wide */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="flex items-start gap-4 rounded-2xl bg-beige-light/20 p-5 sm:col-span-2 sm:items-center sm:gap-6 sm:p-7"
-            >
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10">
-                <Sparkles size={28} className="text-primary" />
-              </div>
-              <div>
-                <h4 className="font-[family-name:var(--font-londrina)] text-xl text-dark">
-                  Meine Philosophie
-                </h4>
-                <p className="mt-1 leading-relaxed text-dark/60">
-                  Gute Energie zieht gute Menschen an. Ich glaube an
-                  ehrliche Verbindungen, an Leichtigkeit im Umgang und daran,
-                  dass Finanzen kein trockenes Thema sein müssen.
-                </p>
-              </div>
-            </motion.div>
-
-            {/* Card 6 - Bike */}
-            <motion.div
-              whileHover={{ y: -4 }}
-              className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-dark to-dark/90 p-5 text-white sm:p-7"
-            >
-              <Bike
-                size={70}
-                className="absolute -right-1 -bottom-1 text-white/5"
-                strokeWidth={1}
-              />
-              <div className="relative">
-                <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10">
-                  <Bike size={20} className="text-primary-light" />
-                </div>
-                <h4 className="font-[family-name:var(--font-londrina)] text-xl">
-                  Team Risiko?
-                </h4>
-                <p className="mt-2 text-sm leading-relaxed text-white/60">
-                  Absolut. Aber kalkuliert. Im Leben wie in der
-                  Finanzplanung – Mut mit Strategie.
-                </p>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );
