@@ -11,8 +11,8 @@ const actions = [
     icon: Star,
     bg: "bg-[#D9A397]",
     shadow: "shadow-[#D9A397]/40",
-    href: "https://forms.gle/feedback-cristina", // Platzhalter – später ersetzen
-    target: "_blank",
+    href: "#feedback",
+    target: "_self",
   },
   {
     id: "whatsapp",

@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import Terminbuchung from "@/components/Terminbuchung";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
+import FeedbackForm from "@/components/FeedbackForm";
 
 export default function Home() {
   return (
@@ -24,6 +25,7 @@ export default function Home() {
       <Terminbuchung />
       <FAQ />
       <ContactForm />
+      <FeedbackForm />
     </>
   );
 }
