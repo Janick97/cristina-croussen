@@ -1,8 +1,8 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Impressum | Cristina Croußen",
-  description: "Impressum von Cristina Croußen, Finanzcoach & Vermögensberater Assistentin der DVAG.",
+  description: "Impressum von Cristina Croußen, Finanzcoach & Vermögensberater Assistentin.",
 };
 
 export default function Impressum() {
@@ -15,31 +15,25 @@ export default function Impressum() {
         >
           ← Zurück zur Startseite
         </a>
-        <h1 className="font-[family-name:var(--font-londrina)] text-4xl text-dark sm:text-5xl">
+        <h1 className="font-[family-name:var(--font-londrina)] font-semibold text-4xl text-dark sm:text-5xl">
           Impressum
         </h1>
         <div className="mt-2 h-1 w-16 rounded-full bg-primary" />
 
         <div className="mt-10 space-y-8 text-dark/70 leading-relaxed">
           <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h2 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               Angaben gemäß § 5 TMG
             </h2>
             <p>
               Cristina Croußen
               <br />
-              DVAG – Deutsche Vermögensberatung
-              <br />
-              Hochstr. 96
-              <br />
-              52525 Heinsberg
-              <br />
-              Deutschland
+              Vermögensberater Assistentin
             </p>
           </section>
 
           <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h2 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               Kontakt
             </h2>
             <p>
@@ -47,30 +41,16 @@ export default function Impressum() {
               <a href="tel:+4916092282112" className="text-primary hover:underline">
                 0160 92282112
               </a>
+              <br />
+              E-Mail:{" "}
+              <a href="mailto:kontakt@cristinacroussen.de" className="text-primary hover:underline">
+                kontakt@cristinacroussen.de
+              </a>
             </p>
           </section>
 
           <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
-              Berufsbezeichnung & Aufsichtsbehörde
-            </h2>
-            <p>
-              Cristina Croußen ist als selbstständige Handelsvertreterin gemäß
-              § 84 HGB für die Deutsche Vermögensberatung AG (DVAG) tätig.
-            </p>
-            <p className="mt-3">
-              <strong>Deutsche Vermögensberatung AG</strong>
-              <br />
-              Andreas-Weg 1
-              <br />
-              60439 Frankfurt am Main
-              <br />
-              Deutschland
-            </p>
-          </section>
-
-          <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h2 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               EU-Streitschlichtung
             </h2>
             <p>
@@ -93,7 +73,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h2 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               Haftung für Inhalte
             </h2>
             <p>
@@ -108,7 +88,7 @@ export default function Impressum() {
           </section>
 
           <section>
-            <h2 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
+            <h2 className="mb-3 font-[family-name:var(--font-londrina)] font-semibold text-2xl text-dark">
               Haftung für Links
             </h2>
             <p>
