@@ -1,19 +1,24 @@
 # Cristina Croußen — Website Dokumentation
 
-Professionelle Website für Cristina Croußen, Finanzcoach & Vermögensberaterin bei der DVAG (Deutsche Vermögensberatung).
+Professionelle Website für Cristina Croußen, Finanzcoach & Vermögensberater Assistentin.
+
+> ⚠️ KEIN DVAG-Branding! Keine Markennennung, keine Kundenzahlen der DVAG.
+> Cristina ist "Vermögensberater Assistentin" (nicht "Vermögensberaterin").
+> Verkauft wird: **Dienstleistung + Konzept + Strategie** — kein Produktverkauf.
+> Cristina = Copilot. Kunde = Pilot. Entscheidung bleibt beim Kunden.
 
 ## Tech-Stack
 
-| Technologie        | Version   | Zweck                              |
-|--------------------|-----------|------------------------------------|
-| Next.js            | 16.x      | Framework (App Router)             |
-| React              | 19.x      | UI-Library                         |
-| TypeScript         | 5.x       | Typisierung                        |
-| TailwindCSS        | 4.x       | Styling (inline @theme)            |
-| Framer Motion      | 12.x      | Animationen                        |
-| Lucide React       | 0.575+    | Icon-Library                       |
-| Nodemailer         | 8.x       | E-Mail-Versand (SMTP)              |
-| Ollama (extern)    | —         | KI-Chat (Self-hosted LLM)          |
+| Technologie     | Version | Zweck                          |
+|-----------------|---------|--------------------------------|
+| Next.js         | 16.x    | Framework (App Router)         |
+| React           | 19.x    | UI-Library                     |
+| TypeScript      | 5.x     | Typisierung                    |
+| TailwindCSS     | 4.x     | Styling (inline @theme)        |
+| Framer Motion   | 12.x    | Animationen                    |
+| Lucide React    | 0.575+  | Icon-Library                   |
+| Nodemailer      | 8.x     | E-Mail-Versand (SMTP)          |
+| Ollama (extern) | —       | KI-Chat (Self-hosted LLM)      |
 
 ## Projektstruktur
 
@@ -23,184 +28,169 @@ cristina-croussen/
 │   ├── app/
 │   │   ├── layout.tsx              # Root-Layout (Fonts, Meta, globale Komponenten)
 │   │   ├── page.tsx                # Startseite (alle Sektionen)
-│   │   ├── globals.css             # TailwindCSS @theme, Custom Scrollbar, Selection
+│   │   ├── globals.css             # TailwindCSS @theme, Custom Scrollbar
 │   │   ├── icon.svg                # Favicon ("CC" Initialen)
-│   │   ├── impressum/page.tsx      # Impressum (ohne § 34d GewO)
-│   │   ├── datenschutz/page.tsx    # Datenschutzerklärung (DSGVO-konform)
+│   │   ├── impressum/page.tsx      # Impressum
+│   │   ├── datenschutz/page.tsx    # Datenschutzerklärung (DSGVO)
 │   │   └── api/
-│   │       ├── contact/route.ts    # Kontaktformular → E-Mail
-│   │       ├── schadenspruefung/route.ts # Schadensprüfung → E-Mail
-│   │       └── chat/route.ts       # KI-Chat → Ollama API
+│   │       ├── contact/route.ts
+│   │       ├── schadenspruefung/route.ts
+│   │       └── chat/route.ts
 │   ├── components/
-│   │   ├── Header.tsx              # Sticky Header mit Logo, Nav, CTA
+│   │   ├── Header.tsx              # Sticky Header, Nav, CTA
 │   │   ├── Hero.tsx                # Parallax-Hero mit Profilbild
-│   │   ├── PartnerLogos.tsx        # Partner-Logos (6 Stück)
-│   │   ├── About.tsx               # Über mich (Bento Grid + Typewriter-Zitat)
-│   │   ├── Counter.tsx             # Animierte Zahlen (4 Stats)
-│   │   ├── Services.tsx            # Leistungen (6 Karten)
+│   │   ├── LifeJourney.tsx         # Lebensstationen (klickbare Karten → Modal)
+│   │   ├── PartnerLogos.tsx        # Partner-Logos (kein DVAG-Logo)
+│   │   ├── About.tsx               # Über mich (Profilbild + 3 Textblöcke)
+│   │   ├── Counter.tsx             # 3 animierte Stats
+│   │   ├── Services.tsx            # Leistungen (vertikal gestapelt)
 │   │   ├── ProcessTimeline.tsx     # 5-Schritte-Prozess
 │   │   ├── SchadenForm.tsx         # Schadensprüfungs-Formular
 │   │   ├── Testimonials.tsx        # Kundenstimmen
-│   │   ├── Terminbuchung.tsx       # Termin buchen (Cal.eu Link)
-│   │   ├── FAQ.tsx                 # Häufige Fragen (Accordion)
+│   │   ├── Terminbuchung.tsx       # Termin buchen (Cal.eu)
+│   │   ├── FAQ.tsx                 # Accordion
 │   │   ├── ContactForm.tsx         # Kontaktformular
-│   │   ├── Footer.tsx              # Footer mit Navigation + Rechtliches
+│   │   ├── FeedbackForm.tsx        # Feedback
+│   │   ├── Footer.tsx              # Footer
 │   │   ├── AiChat.tsx              # KI-Versicherungsassistent
-│   │   ├── WhatsAppButton.tsx      # Floating WhatsApp-Button
-│   │   ├── StickyCTA.tsx           # Sticky CTA-Bar (beim Scrollen)
+│   │   ├── FloatingActions.tsx     # FAB: Feedback ⭐, WhatsApp 💬, KI-Chat ✨
+│   │   ├── StickyCTA.tsx           # Sticky CTA-Bar
 │   │   ├── ExitIntentPopup.tsx     # Exit-Intent Popup
 │   │   ├── CookieBanner.tsx        # DSGVO Cookie-Banner
 │   │   ├── PageLoader.tsx          # Ladeanimation
-│   │   └── ScrollProgress.tsx      # Rosa Fortschrittsbalken unter Nav
+│   │   └── ScrollProgress.tsx      # Rosa Fortschrittsbalken
 │   └── lib/
-│       └── mail.ts                 # Nodemailer SMTP-Transporter
-├── public/
-│   └── images/
-│       ├── profil.jpeg             # Profilbild (Hero-Bereich)
-│       ├── neu.jpeg                # Über-mich-Bild (aktuell verwendet)
-│       ├── privat.jpeg             # Alternatives Bild (nicht aktiv)
-│       └── profi.jpeg              # Alternatives Bild (nicht aktiv)
-├── Dockerfile                      # Multi-Stage Docker Build (node:20-alpine)
-├── next.config.ts                  # output: "standalone" für Docker
-├── .env.local                      # Lokale Umgebungsvariablen
-└── package.json
+│       └── mail.ts
+├── public/images/
+│   ├── profil.jpeg                 # Profilbild (Hero)
+│   └── neu.jpeg                    # Über-mich-Bild
+├── Dockerfile
+├── next.config.ts
+└── .env.local
 ```
 
-## Seitenstruktur (Reihenfolge auf Startseite)
+## Seitenstruktur (Reihenfolge Startseite)
 
-1. **Hero** — Parallax-Hero mit Profilbild (nur Desktop), CTA-Buttons, Trust-Badges
-2. **PartnerLogos** — Deutsche Vermögensberatung, Generali, Deutsche Bank, AdvoCard, PlanetHome, Badenia
-3. **About** — Persönlicher Bereich mit Bento Grid (6 Fun-Fact-Karten), Profilbild, Typewriter-Zitat
-4. **Counter** — 8 Mio+ DVAG Kunden, 24h Reaktionszeit, 6+ Jahre Erfahrung, 100% Weiterempfehlung
-5. **Services** — Altersvorsorge, Vermögensaufbau, Versicherungen, Sparpläne, Berufsunfähigkeit, Schadensprüfung
-6. **ProcessTimeline** — 5 Schritte: Erstgespräch → Analyse → Strategie → Umsetzung → Partnerschaft
-7. **SchadenForm** — Formular mit Versicherungsart-Auswahl, Dokument-Upload, E-Mail-Versand
-8. **Testimonials** — Kundenstimmen (statisch)
-9. **Terminbuchung** — Weiterleitung zu Cal.eu (https://www.cal.eu/cristinacroussen/15min)
-10. **FAQ** — Häufige Fragen als Accordion
-11. **ContactForm** — Kontaktformular mit E-Mail-Versand
-
-## Globale Komponenten (im Layout)
-
-- **Header** — Sticky, transparent → blur bei Scroll. Nav: Über mich, Schadensprüfung, Kontakt. CTA: "Jetzt Termin buchen"
-- **ScrollProgress** — Rosa Fortschrittsbalken unter der Navigation (top: 80px)
-- **Footer** — Navigation, Rechtliches (Impressum, Datenschutz), Copyright
-- **AiChat** — KI-Versicherungsassistent (Button unten links), Fullscreen auf Mobile
-- **WhatsAppButton** — Floating Button unten rechts (0160 92282112)
-- **StickyCTA** — Sticky CTA-Bar beim Runterscrollen
-- **ExitIntentPopup** — Desktop: Maus verlässt Fenster; Mobile: 600px Zurückscrollen. 1x pro Session
-- **CookieBanner** — DSGVO Cookie-Opt-in
-- **PageLoader** — Ladeanimation beim ersten Laden
+1. **Hero** — Parallax, Profilbild Desktop, CTA-Buttons
+2. **LifeJourney** — Lebensstationen als klickbare Karten; Klick → Modal mit Termin/WhatsApp
+3. **PartnerLogos** — Partner ohne DVAG
+4. **About** — Profilbild + 3 Textblöcke (kein Heading, kein Bento Grid)
+5. **Counter** — 3 Stats: 24h Reaktionszeit | 100% Weiterempfehlung | Kostenlos Erstgespräch
+6. **Services** — Leistungskarten vertikal (flex-col), Klick → Modal
+7. **ProcessTimeline** — 5 Schritte: Finanzanalyse → Individuelle Planung → Beratung & Konzept → Umsetzung → Dauerhafte Partnerschaft
+8. **SchadenForm** — "Schon Kunde?" Toggle, Formular mit Upload
+9. **Testimonials**
+10. **Terminbuchung** — Cal.eu
+11. **FAQ**
+12. **ContactForm**
+13. **FeedbackForm**
 
 ## Design-System
 
-### Farben (TailwindCSS @theme)
-- `primary`: #D9A397 (Rosa/Rosé)
+### Farben
+- `primary`: #D9A397 (Rosa)
 - `primary-light`: #E8C4BB
 - `primary-dark`: #C48B7E
-- `dark`: #424242 (Textfarbe)
+- `dark`: #424242
 - `beige`: #BBB5AC
 - `beige-light`: #D4CFC8
-- `background`: #ffffff
 
-### Fonts (Google Fonts)
-- **Londrina Solid** (`--font-londrina`) — Headings, große Texte
-- **Caveat** (`--font-caveat`) — Script/Akzent-Font (Ersatz für Biro Script Plus)
-- **Assistant** (`--font-assistant`) — Body-Text, Standard-Schrift
+### Fonts (Google Fonts via next/font)
+- **Cormorant Garamond** (`--font-londrina`) — Headings, SemiBold 600
+  - ⚠️ CSS-Variable heißt `--font-londrina` (historisch), ist aber Cormorant Garamond!
+  - Gewichte geladen: 300, 400, 600, 700 (normal + italic)
+  - Alle Komponenten nutzen: `font-[family-name:var(--font-londrina)] font-semibold`
+- **Caveat** (`--font-caveat`) — Script/Handschrift-Akzente
+- **Assistant** (`--font-assistant`) — Body-Text
+
+> ⚠️ WICHTIG: Niemals PowerShell `-replace` + `Set-Content` für .tsx-Dateien mit Umlauten verwenden!
+> Immer Python mit `open(..., encoding='utf-8')` nutzen — sonst werden Umlaute zerstört (UTF-8 Korruption).
 
 ### Animationen
-- Scroll-Reveal (whileInView) auf fast allen Sektionen
-- Parallax-Effekt im Hero (useScroll + useTransform)
-- Typewriter-Effekt im About-Zitat (Desktop: width 0→auto, Mobile: fade-in)
-- Animierte Counter (Zahlen zählen hoch bei Scroll)
-- Hover-Effekte auf Karten (y: -4), Buttons (scale)
-- Exit-Intent Popup mit Backdrop-Blur
+- Scroll-Reveal (`whileInView`) auf fast allen Sektionen
+- Parallax im Hero
+- Animierte Counter (hochzählen bei Scroll)
+- Hover auf Karten (y: -4)
+
+## Navigation (Header)
+
+```
+Über mich | Meine Leistungen | Schadensprüfung | Termin buchen | Kontakt
+```
+
+- Schadensprüfung ist in der Nav, scrollt zur SchadenForm-Sektion
+- Seite öffnet immer oben — kein Auto-Scroll beim Laden (kein Hash in URL speichern!)
+
+## About-Sektion
+
+- Kein Bento Grid (entfernt)
+- Kein Badge ("6+ Jahre Erfahrung" entfernt)
+- Kein Heading ("Mein Weg" etc. entfernt)
+- Nur: Profilbild links + 3 Textblöcke rechts + Zitat unten
+
+## Counter-Sektion
+
+- Nur 3 Felder (kein 4. Feld)
+- `grid-cols-3` (zentriert, Desktop + Mobile)
+- Stats: 24h Reaktionszeit | 100% Weiterempfehlung | Kostenlos Erstgespräch
+- "Kostenlos" ist statischer Text (kein AnimatedNumber)
+
+## ProcessTimeline
+
+5 Schritte:
+1. Finanzanalyse (Search)
+2. Individuelle Planung (ClipboardList)
+3. Beratung & Konzept (BookOpen) — NEU: Konzept-Präsentation, Kunde entscheidet
+4. Umsetzung (Rocket)
+5. Dauerhafte Partnerschaft (Handshake)
 
 ## E-Mail-System
 
-### Konfiguration
-- **SMTP-Server:** smtp.strato.de
-- **Port:** 587 (STARTTLS) — Port 465 wird von Hetzner blockiert!
+- **SMTP:** smtp.strato.de, Port 587 (STARTTLS) — Port 465 von Hetzner blockiert!
 - **Absender:** Kontaktformular@cristinacroussen.de
 - **Empfänger:** kontakt@cristinacroussen.de
-- **Lib:** `src/lib/mail.ts` (Nodemailer mit createTransport)
+- `secure: false` + `requireTLS: true`
 
-### Wichtig
-- Lokal in `.env.local`: `SMTP_PORT=465` (funktioniert lokal)
-- Auf dem Server (Coolify): `SMTP_PORT=587` (Hetzner blockiert 465)
-- `secure: false` + `requireTLS: true` für STARTTLS
+## KI-Chat
 
-### API-Endpunkte
-- `POST /api/contact` — Kontaktformular (JSON: name, email, telefon, nachricht, datenschutz)
-- `POST /api/schadenspruefung` — Schadensprüfung (FormData: name, email, telefon, versicherungsart, beschreibung, dokumente, datenschutz)
-
-## KI-Chat (Versicherungs-Assistent)
-
-### Konfiguration
-- **LLM:** Ollama mit `gemma3:1b` Modell (auf Server)
-- **Lokal in .env.local:** `OLLAMA_MODEL=gemma3:4b` (leistungsstärker)
-- **Auf Server:** `OLLAMA_MODEL=gemma3:1b` (ressourcenschonend)
-- **Ollama URL lokal:** `http://localhost:11434`
-- **Ollama URL Server:** `http://ollama:11434` (Docker-Netzwerk `coolify`)
-- **API-Route:** `src/app/api/chat/route.ts`
-
-### System-Prompt
-Der KI-Assistent kennt alle gängigen Versicherungsarten (Haftpflicht, Hausrat, Wohngebäude, KFZ, BU, Rechtsschutz, Unfall, Reise, Altersvorsorge) und kann erklären, welche Versicherung welchen Schadensfall abdeckt. Bei konkreten Fällen verweist er auf persönliche Beratung mit Cristina.
-
-### Regeln
-- Antwortet nur auf Deutsch
-- Nur Versicherungs-/Finanzthemen
-- Kurze Antworten (max. 3-4 Sätze pro Punkt)
-- Verweist bei konkreten Fällen auf persönliche Beratung
-- Keine rechtsverbindlichen Aussagen
+- Ollama: `gemma3:1b` auf Server, `gemma3:4b` lokal
+- URL Server: `http://ollama:11434` (Docker-Netzwerk `coolify`)
+- Nur Deutsch, nur Versicherungs-/Finanzthemen, max 3-4 Sätze
 
 ## Deployment
 
-### Server
-- **Hetzner Server:** 46.225.208.184
-- **Coolify:** http://46.225.208.184:8000
-- **GitHub Repo:** github.com/Janick97/cristina-croussen (privat, Deploy Key)
-- **Branch:** main
-
-### Docker
-- Multi-Stage Build: deps → builder → runner
-- Node 20 Alpine, Standalone-Output
-- Port 3000
+- **Server:** Hetzner 46.225.208.184
+- **Coolify:** http://46.225.208.184:8000, Token `15|fFvEJ0u8o0xb6agYQDkgve66QxafiDPTcK2Ak3MS4f46098b`
+- **App UUID:** `wwc4cwwco8w04go00k8wkwgo`
+- **Branch:** main → Auto-Deploy via Coolify
 
 ### Umgebungsvariablen (Coolify)
 ```
 SMTP_HOST=smtp.strato.de
-SMTP_PORT=587                    # NICHT 465!
+SMTP_PORT=587
 SMTP_USER=Kontaktformular@cristinacroussen.de
 SMTP_PASS=Sunny!1507
-OLLAMA_URL=http://ollama:11434   # Docker-Netzwerk
-OLLAMA_MODEL=gemma3:1b           # Nicht 4b!
+OLLAMA_URL=http://ollama:11434
+OLLAMA_MODEL=gemma3:1b
 ```
-
-### Deploy-Prozess
-1. Code pushen nach `main`
-2. In Coolify manuell "Deploy" klicken
-3. Nach Deploy prüfen ob Ollama noch im `coolify` Docker-Netzwerk ist
 
 ## Bekannte Probleme & Lösungen
 
 | Problem | Ursache | Lösung |
 |---------|---------|--------|
-| SMTP Timeout auf Server | Hetzner blockiert Port 465 | Port 587 + STARTTLS verwenden |
-| Ollama antwortet nicht | Falsches Modell oder Netzwerk | `OLLAMA_MODEL=gemma3:1b`, URL `http://ollama:11434` |
-| About-Bild wird nicht angezeigt | `fill` Prop ohne Container-Höhe | Explizite `width`/`height` Props verwenden |
-| Typewriter bricht auf Mobile | `whiteSpace: nowrap` verhindert Umbruch | Separate Mobile- (fade-in) und Desktop-Variante (typewriter) |
-| DNS-Fehler beim Deploy | Docker kann github.com nicht auflösen | Erneut deployen (temporär) |
+| UTF-8 Korruption in .tsx | PowerShell Set-Content zerstört Umlaute | Python mit encoding='utf-8' verwenden |
+| Build schlägt fehl | Lucide-Icon existiert nicht (z.B. `Presentation`) | Verfügbare Icons prüfen (BookOpen, FileText etc.) |
+| SMTP Timeout | Hetzner blockiert Port 465 | Port 587 + STARTTLS |
+| Ollama antwortet nicht | Falsches Modell/Netzwerk | gemma3:1b, http://ollama:11434 |
 
-## Kontaktdaten (Cristina)
+## Kontaktdaten
 
-- **Telefon/WhatsApp:** 0160 92282112
+- **WhatsApp:** 0160 92282112
 - **E-Mail:** kontakt@cristinacroussen.de
-- **Terminbuchung:** https://www.cal.eu/cristinacroussen/15min
-- **Position:** Finanzcoach & Vermögensberaterin | DVAG
+- **Termin:** https://www.cal.eu/cristinacroussen/15min
 
 ## Offene Punkte
 
-- Domain einrichten + HTTPS
-- § 34d GewO im Impressum ergänzen (wenn registriert)
-- Profilbilder aufräumen (nur `profil.jpeg` und `neu.jpeg` werden aktuell verwendet)
+- Cloudflare named Tunnel (feste URL) einrichten — Login hängt noch
+- FloatingActions Feedback-URL: noch Platzhalter
+- About-Bild: nur `profil.jpeg` und `neu.jpeg` aktiv
