@@ -99,24 +99,15 @@ export default function Services() {
                 </div>
 
                 {/* Titel */}
-                <h3 className="font-[family-name:var(--font-londrina)] text-xl leading-tight text-dark sm:text-2xl">
+                <h3 className="mb-3 font-[family-name:var(--font-londrina)] text-2xl text-dark">
                   {service.title}
                 </h3>
 
-                {/* Beschreibung — nur beim Hover sichtbar, expandiert die Karte */}
-                <div className="grid transition-all duration-300 ease-out [grid-template-rows:0fr] group-hover:[grid-template-rows:1fr]">
-                  <div className="overflow-hidden">
-                    <p className="mt-3 text-sm leading-relaxed text-dark/60">
-                      {service.description}
-                    </p>
-                    <span className="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-primary">
-                      Mehr erfahren
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                      </svg>
-                    </span>
-                  </div>
-                </div>
+                {/* Beschreibung — immer sichtbar */}
+                <p className="leading-relaxed text-dark/60">{service.description}</p>
+                <p className="mt-4 text-xs font-semibold text-primary opacity-0 transition-opacity group-hover:opacity-100">
+                  Termin vereinbaren →
+                </p>
               </div>
             </motion.button>
           ))}
