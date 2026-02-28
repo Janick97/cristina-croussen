@@ -1,5 +1,5 @@
 ﻿import type { Metadata } from "next";
-import { Londrina_Solid, Caveat, Assistant } from "next/font/google";
+import { Cormorant_Garamond, Caveat, Assistant } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -11,8 +11,9 @@ import AiChat from "@/components/AiChat";
 import ScrollProgress from "@/components/ScrollProgress";
 import FloatingActions from "@/components/FloatingActions";
 
-const londrina = Londrina_Solid({
-  weight: ["300", "400", "900"],
+const londrina = Cormorant_Garamond({
+  weight: ["300", "400", "600", "700"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
   variable: "--font-londrina",
   display: "swap",
