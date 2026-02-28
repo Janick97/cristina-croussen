@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Search, ClipboardList, Rocket, Handshake, Presentation } from "lucide-react";
+import { Search, ClipboardList, Rocket, Handshake, BookOpen } from "lucide-react";
 
 const steps = [
   {
@@ -19,7 +19,7 @@ const steps = [
       "Basierend auf unserem Gespräch entwickle ich eine maßgeschneiderte Strategie.",
   },
   {
-    icon: Presentation,
+    icon: BookOpen,
     step: "03",
     title: "Beratung & Konzept",
     description:
