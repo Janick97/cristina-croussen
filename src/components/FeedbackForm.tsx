@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Star, CheckCircle, AlertCircle } from "lucide-react";
+import { Star, CheckCircle, AlertCircle, HandHeart } from "lucide-react";
 
 const gefieltOptions = [
   "Design",
@@ -76,9 +76,10 @@ export default function FeedbackForm() {
             <h3 className="font-[family-name:var(--font-londrina)] text-3xl text-dark">
               Vielen Dank!
             </h3>
-            <p className="mt-3 text-dark/60">
-              Dein Feedback hilft mir, die Seite noch besser zu machen. 🙏
-            </p>
+            <div className="mt-3 flex items-center justify-center gap-2 text-dark/60">
+              <HandHeart size={20} color="#D9A397" />
+              <span>Dein Feedback hilft mir, die Seite noch besser zu machen.</span>
+            </div>
           </motion.div>
         </div>
       </section>
