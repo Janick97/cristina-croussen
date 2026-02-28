@@ -1,4 +1,4 @@
-import Link from "next/link";
+Ôªøimport Link from "next/link";
 
 export default function Footer() {
   return (
@@ -12,11 +12,11 @@ export default function Footer() {
                 Cristina
               </span>
               <span className="font-[family-name:var(--font-caveat)] text-lg text-primary">
-                Crouﬂen
+                Crou√üen
               </span>
             </div>
             <p className="mt-3 text-sm leading-relaxed text-dark/50">
-              Finanzcoach & Vermˆgensberater Assistentin
+              Finanzcoach & Verm√∂gensberater Assistentin
             </p>
           </div>
 
@@ -27,10 +27,10 @@ export default function Footer() {
             </h4>
             <nav className="flex flex-col gap-2">
               <a href="#ueber-mich" className="text-sm text-dark/60 transition-colors hover:text-primary">
-                ‹ber mich
+                √úber mich
               </a>
               <a href="#schadenspruefung" className="text-sm text-dark/60 transition-colors hover:text-primary">
-                Schadenspr¸fung
+                Schadenspr√ºfung
               </a>
               <a href="#termin" className="text-sm text-dark/60 transition-colors hover:text-primary">
                 Termin buchen
@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 border-t border-beige/20 pt-6 text-center text-sm text-dark/40">
-          &copy; {new Date().getFullYear()} Cristina Crouﬂen. Alle Rechte vorbehalten.
+          &copy; {new Date().getFullYear()} Cristina Crou√üen. Alle Rechte vorbehalten.
         </div>
       </div>
     </footer>
